@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../lib/auth";
 
 type AppShellProps = {
-  heading: string;
-  note: string;
+  heading?: string;
+  note?: string;
   children?: ReactNode;
 };
 
-/** Minimal authed shell (top bar + content). S06/S07 flesh this out. */
+/** Authed shell: top bar with sign out; content via children (or heading/note). */
 export function AppShell({ heading, note, children }: AppShellProps) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -51,15 +51,23 @@ export function AppShell({ heading, note, children }: AppShellProps) {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-14 sm:px-6 sm:py-20">
-        <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
-          {heading}
-        </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-          {note}
-        </p>
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-6 sm:px-6 sm:py-8">
+        {heading || note ? (
+          <div className="mb-8">
+            {heading ? (
+              <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+                {heading}
+              </h1>
+            ) : null}
+            {note ? (
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+                {note}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
         {children}
-      </main>
+      </div>
     </div>
   );
 }

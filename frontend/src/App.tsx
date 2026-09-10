@@ -4,7 +4,11 @@ import { RequireAnon, RequireRole } from "./components/RequireRole";
 import { AuthProvider } from "./lib/auth";
 import { HealthPage } from "./pages/HealthPage";
 import { BrandShell } from "./pages/app/BrandShell";
-import { CreatorShell } from "./pages/app/CreatorShell";
+import { CreatorCard } from "./pages/creator/CreatorCard";
+import { CreatorCollaborations } from "./pages/creator/CreatorCollaborations";
+import { CreatorHome } from "./pages/creator/CreatorHome";
+import { CreatorOpportunities } from "./pages/creator/CreatorOpportunities";
+import { CreatorShell } from "./pages/creator/CreatorShell";
 import { LoginPage } from "./pages/auth/LoginPage";
 import { RegisterPage } from "./pages/auth/RegisterPage";
 import { CreatorsPage } from "./pages/marketing/CreatorsPage";
@@ -44,7 +48,12 @@ export default function App() {
                 <CreatorShell />
               </RequireRole>
             }
-          />
+          >
+            <Route index element={<CreatorHome />} />
+            <Route path="card" element={<CreatorCard />} />
+            <Route path="opportunities" element={<CreatorOpportunities />} />
+            <Route path="collaborations" element={<CreatorCollaborations />} />
+          </Route>
           <Route
             path="/brand"
             element={
