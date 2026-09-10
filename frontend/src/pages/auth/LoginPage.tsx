@@ -10,6 +10,10 @@ const fieldClass =
 const labelClass =
   "text-xs font-semibold uppercase tracking-[0.08em] text-muted";
 
+const DEMO_PASSWORD = "naano-demo-pass";
+const DEMO_CREATOR_EMAIL = "amelie.dubois@creator.naano.test";
+const DEMO_BRAND_EMAIL = "growth@runanywhere.naano.test";
+
 export function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -18,10 +22,11 @@ export function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [demoBusy, setDemoBusy] = useState<"creator" | "brand" | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (submitting) return;
+    if (submitting || demoBusy) return;
     setError(null);
     setSubmitting(true);
     try {
@@ -37,6 +42,26 @@ export function LoginPage() {
       }
     } finally {
       setSubmitting(false);
+    }
+  }
+
+  async function handleDemoLogin(role: "creator" | "brand") {
+    if (submitting || demoBusy) return;
+    setError(null);
+    setDemoBusy(role);
+    const demoEmail =
+      role === "creator" ? DEMO_CREATOR_EMAIL : DEMO_BRAND_EMAIL;
+    try {
+      await login(demoEmail, DEMO_PASSWORD);
+      navigate(role === "creator" ? "/creator" : "/brand", { replace: true });
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError("Demo login failed. Is the API running and seeded?");
+      }
+    } finally {
+      setDemoBusy(null);
     }
   }
 
@@ -120,12 +145,36 @@ export function LoginPage() {
 
         <button
           type="submit"
-          disabled={submitting}
+          disabled={submitting || demoBusy !== null}
           className="btn-navy mt-1 w-full disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? "Signing in…" : "Sign in"}
         </button>
       </form>
+
+      <div className="mt-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted">
+          Try the demo
+        </p>
+        <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+          <button
+            type="button"
+            disabled={submitting || demoBusy !== null}
+            onClick={() => void handleDemoLogin("creator")}
+            className="btn-navy flex-1 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {demoBusy === "creator" ? "Signing in…" : "Demo as creator"}
+          </button>
+          <button
+            type="button"
+            disabled={submitting || demoBusy !== null}
+            onClick={() => void handleDemoLogin("brand")}
+            className="btn-ghost flex-1 border border-sky-deep/70 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {demoBusy === "brand" ? "Signing in…" : "Demo as brand"}
+          </button>
+        </div>
+      </div>
 
       <p className="mt-6 text-sm text-muted">
         Don&apos;t have an account?{" "}

@@ -7,9 +7,11 @@ import { BrandCampaigns } from "./pages/brand/BrandCampaigns";
 import { BrandCollaborations } from "./pages/brand/BrandCollaborations";
 import { BrandMarketplace } from "./pages/brand/BrandMarketplace";
 import { BrandOverview } from "./pages/brand/BrandOverview";
+import { BrandResults } from "./pages/brand/BrandResults";
 import { BrandShell } from "./pages/brand/BrandShell";
 import { CreatorCard } from "./pages/creator/CreatorCard";
 import { CreatorCollaborations } from "./pages/creator/CreatorCollaborations";
+import { CreatorEarnings } from "./pages/creator/CreatorEarnings";
 import { CreatorHome } from "./pages/creator/CreatorHome";
 import { CreatorOpportunities } from "./pages/creator/CreatorOpportunities";
 import { CreatorShell } from "./pages/creator/CreatorShell";
@@ -57,6 +59,7 @@ export default function App() {
             <Route path="card" element={<CreatorCard />} />
             <Route path="opportunities" element={<CreatorOpportunities />} />
             <Route path="collaborations" element={<CreatorCollaborations />} />
+            <Route path="earnings" element={<CreatorEarnings />} />
           </Route>
           <Route
             path="/brand"
@@ -70,6 +73,7 @@ export default function App() {
             <Route path="marketplace" element={<BrandMarketplace />} />
             <Route path="campaigns" element={<BrandCampaigns />} />
             <Route path="collaborations" element={<BrandCollaborations />} />
+            <Route path="results" element={<BrandResults />} />
           </Route>
           <Route path="/health" element={<HealthPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

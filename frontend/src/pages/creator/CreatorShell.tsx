@@ -6,6 +6,7 @@ const navItems = [
   { to: "/creator/card", label: "Card", end: false },
   { to: "/creator/opportunities", label: "Opportunities", end: false },
   { to: "/creator/collaborations", label: "Collaborations", end: false },
+  { to: "/creator/earnings", label: "Earnings", end: false },
 ] as const;
 
 function navClass({ isActive }: { isActive: boolean }): string {

@@ -6,6 +6,7 @@ const navItems = [
   { to: "/brand/marketplace", label: "Marketplace", end: false },
   { to: "/brand/campaigns", label: "Campaigns", end: false },
   { to: "/brand/collaborations", label: "Collaborations", end: false },
+  { to: "/brand/results", label: "Results", end: false },
 ] as const;
 
 function navClass({ isActive }: { isActive: boolean }): string {

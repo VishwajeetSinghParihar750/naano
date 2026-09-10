@@ -70,6 +70,24 @@ npm run dev
 
 Open **http://localhost:5173** — you should see **API: ok**.
 
+## Demo walkthrough
+
+Use the seeded accounts above (or the **Demo as creator** / **Demo as brand**
+buttons on `/login`).
+
+1. **Brand invite** — Sign in as the brand → Marketplace → Invite a published
+   creator onto one of your campaigns.
+2. **Creator accept** — Sign out → sign in as the creator → Opportunities →
+   Accept the invite.
+3. **Draft** — On Collaborations, paste a draft URL and submit.
+4. **Brand approve** — Sign back in as the brand → Collaborations → Approve the
+   draft (moves the collab to live).
+5. **Mark paid** — Still on brand Collaborations → Mark paid.
+
+Stubs for the demo: brand **Results** (`/brand/results`) shows placeholder
+metrics; creator **Earnings** (`/creator/earnings`) shows €0 with Connect
+Stripe disabled until real payouts ship.
+
 ## Environment
 
 **Backend** (`backend/.env`):
