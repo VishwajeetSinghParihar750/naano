@@ -1,0 +1,1315 @@
+{
+  "url": "https://naano.com/brand#billing",
+  "title": "Naano - Multi-network creator platform",
+  "headings": [
+    "Opening company",
+    "{n} creator matches are ready.",
+    "How do you want to launch your campaign?",
+    "Launch free with the Naano team",
+    "Create with AI",
+    "Start from your link",
+    "Here is what is happening for RunAnywhere on Naano.",
+    "To do",
+    "Messages",
+    "New creators",
+    "Need an expert eye? Book a free call.",
+    "How do you want to launch your campaign?",
+    "Launch free with the Naano team",
+    "Create with AI",
+    "Start from your link",
+    "Your brief, your campaign",
+    "Onboarding with Alexis",
+    "Generate your campaign in one click",
+    "Select your creators",
+    "AI creator matching",
+    "Finding your best creators",
+    "Creators selected for your request",
+    "Anu Chandrasekar",
+    "Evangelia Katsogiannou",
+    "Elissa Carr",
+    "Raphael GÉE",
+    "Ena Babin",
+    "Raghav Jerath",
+    "Guillaume Tonet",
+    "Noé Campo",
+    "Sze Yuen Pua",
+    "Daniel Meisen",
+    "Charles Azoulay",
+    "Yacine Baghli",
+    "Louise Mourey",
+    "Agathe Vinet",
+    "Guillaume Deramchi",
+    "Paul Gee",
+    "Stefan Menard",
+    "Phil Leiser"
+  ],
+  "nav": [
+    {
+      "text": "Open calendar in a new tab",
+      "href": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1jAKngmC-PGgCsMuK4Z7fnFDMmnjZRJjHEReGR7wAALR7mdOwyUx55Owm06Iood6_ZaWIG8HlU?gv=true"
+    },
+    {
+      "text": "Profile",
+      "href": "#settings"
+    },
+    {
+      "text": "Audience",
+      "href": "#settings"
+    },
+    {
+      "text": "Team & access",
+      "href": "/brand/settings/members"
+    },
+    {
+      "text": "Integrations",
+      "href": "#integrations"
+    },
+    {
+      "text": "Team & access Invite colleagues to work together on campaigns, messages, bookings and your shared wallet. Manage team",
+      "href": "/brand/settings/members"
+    },
+    {
+      "text": "Integrations",
+      "href": "#integrations"
+    }
+  ],
+  "allLinks": [
+    "/agency",
+    "/client",
+    "/agency?create=1",
+    "/brand/settings/members"
+  ],
+  "buttons": [
+    "Reload page",
+    "RunAnywhere",
+    "Agency mode",
+    "Overview",
+    "Creators",
+    "Campaigns",
+    "Collaborations",
+    "Results",
+    "Messages",
+    "Billing",
+    "NAANO MCP / Connect",
+    "€0.00",
+    "EN",
+    "FR",
+    "GET STARTED Discover the Marketplace 1/3",
+    "Invite Creators",
+    "Book a call",
+    "Integrations",
+    "Settings",
+    "Sign out",
+    "T",
+    "Explore creators →",
+    "Book my onboarding →",
+    "Create with AI",
+    "Create →",
+    "Start from my link",
+    "New campaign",
+    "Add",
+    "Add",
+    "Add",
+    "Add",
+    "Add",
+    "Add",
+    "Add",
+    "Add",
+    "Book a free call →",
+    "Copy linkPublic brief page — send it to a collaborator",
+    "Share campaignLink + brand name + logo",
+    "Book my onboarding →",
+    "Create with AI"
+  ],
+  "inputs": [
+    {
+      "type": "url",
+      "name": "",
+      "placeholder": "https://notion.site/brief…"
+    },
+    {
+      "type": "url",
+      "name": "",
+      "placeholder": "https://notion.site/brief…"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Brief link (Notion, Docs, PDF…)"
+    },
+    {
+      "type": "textarea",
+      "name": "",
+      "placeholder": "Let’s build this campaign together…"
+    },
+    {
+      "type": "search",
+      "name": "",
+      "placeholder": "Search for a creator…"
+    },
+    {
+      "type": "hidden",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Search an industry…"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Search a country…"
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "range",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "range",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Min"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Max"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Any"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Any"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Any"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Any"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Any"
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "textarea",
+      "name": "",
+      "placeholder": "Ask Nao a question, or find creators…"
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Search creators, campaigns…"
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "search",
+      "name": "",
+      "placeholder": "Search leads"
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "checkbox",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "search",
+      "name": "",
+      "placeholder": "Search conversations"
+    },
+    {
+      "type": "file",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Write a message…"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Your company"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "https://your-site.com"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "One-line positioning"
+    },
+    {
+      "type": "file",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "textarea",
+      "name": "",
+      "placeholder": "What your product does, for whom, and why it matters — 2 to 4 concrete sentences."
+    },
+    {
+      "type": "textarea",
+      "name": "",
+      "placeholder": "How the product works in practice — modules, workflow, outcome."
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "e.g. AI outbound sequences"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "e.g. Multichannel sequences in one inbox"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Custom amount"
+    }
+  ],
+  "bodySnippet": "naano\nRunAnywhere\nOverview\nCreators\nCampaigns\nCollaborations\nResults\nMessages\nBilling\nNAANO MCP\n/\nConnect\n€0.00\nEN\nFR\nGET STARTED\nDiscover the Marketplace\n1/3\nT\nBilling\nManage your budget, plan and invoices.\nNeed help?\nAVAILABLE BALANCE\n€0.00\nReady to spend across your campaigns.\nAdd budget\n+ €2,500\n+ €10,000\nInvoices\nAll\nTop-ups\nBookings\nReference\tDate\tType\tAmount\tStatus\tActions\nNo invoices or entries yet.\nGOOD TO KNOW\nCampaigns organise your creator work\n\nCreate a precise brief only when you need one. Creative freedom works without this extra step.\n\nGot it\n✕"
+}

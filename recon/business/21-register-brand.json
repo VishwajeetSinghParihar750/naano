@@ -1,0 +1,32 @@
+{
+  "title": "Naano: B2B LinkedIn Creator Marketplace",
+  "url": "https://naano.com/register?role=saas",
+  "headings": [
+    "Join Naano",
+    "Creators. Brands. Results."
+  ],
+  "ctas": [
+    {
+      "text": "EN",
+      "href": null
+    },
+    {
+      "text": "Sign up with LinkedIn",
+      "href": "/api/auth/oauth/start?provider=linkedin_oidc&role=saas"
+    },
+    {
+      "text": "Sign up with Google",
+      "href": "/api/auth/oauth/start?provider=google&role=saas"
+    },
+    {
+      "text": "Sign up with email",
+      "href": null
+    },
+    {
+      "text": "Sign in here",
+      "href": "/login?reauth=1"
+    }
+  ],
+  "inputs": [],
+  "bodySnippet": "EN\nJoin Naano\n\nCreators. Brands. Results.\n\nThe #1 platform to run LinkedIn creator campaigns that drive real business.\n\nSign up with LinkedIn\nSign up with Google\nSign up with email\n\nAlready have an account? Sign in here\n\nCreators. Brands. Results.\n\nRun LinkedIn creator campaigns that drive real business - discover creators, track performance, pay in one click.\n\nBuilt for B2B marketing teams"
+}

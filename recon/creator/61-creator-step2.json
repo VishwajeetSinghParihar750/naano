@@ -1,0 +1,11 @@
+{
+  "url": "https://naano.com/register?role=influencer",
+  "text": "EN\nSTEP 1 OF 4\nCheck your email\n\nWe sent a 6-digit code to sahil.8x.1789015724266@mailinator.com Edit email\nEnter it below, stay on this page.\n\nVerify & continueResend code in 59s\nYOUR MARKETPLACE CARD\nBuild a card brands can trust.\n\nIt updates live with your profile, analytics, positioning and price.\n\nS\nSahil 8x\n\nYour LinkedIn headline and topics will appear here.\n\nData\nPending\nFollowers\n—\nEst. impressions\n—\nCost / post\n—\nS\nPerformance & ICP\n\nPublic LinkedIn profile data from Apify (Basic card).\n\nFollowers\n—\nReactions per post\n—\nAverage\nTypical impressions per post\n—\nComments per post\n—\nAverage\nEngagement rate\n—\nPublic LinkedIn data estimated by Naano\nAbout\n\nNo LinkedIn bio yet.\n\nWho you target (est.)\n\nEstimated from your public posts + bio (dominant themes).\n\nTarget pending\n\nRe-import LinkedIn to estimate your target from public posts.",
+  "inputs": [
+    {
+      "type": "text",
+      "name": "code",
+      "placeholder": "000000"
+    }
+  ]
+}

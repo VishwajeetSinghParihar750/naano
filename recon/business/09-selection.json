@@ -1,0 +1,379 @@
+{
+  "title": "Find LinkedIn Creators for B2B — Free Creator Search | Naano",
+  "url": "https://naano.com/selection",
+  "headings": [
+    "Find the LinkedIn creators your buyers already trust.",
+    "A shortlist you can act on the same day.",
+    "Get your creator shortlist.",
+    "How to find LinkedIn creators for your campaign",
+    "Describe your campaign",
+    "A human searches",
+    "Receive your shortlist",
+    "Book or take the list and go",
+    "First time here? What Naano is.",
+    "Frequently asked questions",
+    "Related reading",
+    "Ready to scale with naano?",
+    "Audience measurement"
+  ],
+  "ctas": [
+    {
+      "tag": "a",
+      "text": "Sign in",
+      "href": "/login"
+    },
+    {
+      "tag": "button",
+      "text": "Generate leads Drive demos and qualified demand",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Build awareness Reach your market repeatedly",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Launch a product Introduce a new offer or feature",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "€2,500",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "€10,000",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "€50,000",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Get my free creator shortlist →",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Talk to the managed campaigns team →",
+      "href": "/book"
+    },
+    {
+      "tag": "a",
+      "text": "why nano-creators outperform macro-creators",
+      "href": "/blog/nano-vs-macro-creators-b2b-ctr"
+    },
+    {
+      "tag": "a",
+      "text": "what a B2B creator marketplace is",
+      "href": "/blog/what-is-a-b2b-creator-marketplace"
+    },
+    {
+      "tag": "a",
+      "text": "See pricing",
+      "href": "/pricing"
+    },
+    {
+      "tag": "a",
+      "text": "About Naano",
+      "href": "/about"
+    },
+    {
+      "tag": "a",
+      "text": "All free tools",
+      "href": "/free-tools"
+    },
+    {
+      "tag": "a",
+      "text": "How to find B2B creators on LinkedIn: a practical sourcing guide",
+      "href": "/blog/how-to-find-b2b-creators-linkedin"
+    },
+    {
+      "tag": "a",
+      "text": "Best B2B creator marketplaces in 2026 (ranked)",
+      "href": "/blog/best-b2b-creator-marketplace"
+    },
+    {
+      "tag": "a",
+      "text": "How to launch your first B2B LinkedIn creator campaign in 30 days",
+      "href": "/blog/launch-b2b-linkedin-creator-campaign"
+    },
+    {
+      "tag": "a",
+      "text": "How much does B2B influencer marketing cost in 2026?",
+      "href": "/blog/b2b-influencer-marketing-cost"
+    },
+    {
+      "tag": "a",
+      "text": "How to write a B2B sponsored post that converts",
+      "href": "/blog/how-to-write-b2b-sponsored-post"
+    },
+    {
+      "tag": "a",
+      "text": "Get started",
+      "href": "/register"
+    },
+    {
+      "tag": "a",
+      "text": "See how it works",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "a",
+      "text": "Features",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "a",
+      "text": "Pricing",
+      "href": "/#pricing"
+    },
+    {
+      "tag": "a",
+      "text": "FAQs",
+      "href": "/#faq"
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "href": "/blog"
+    },
+    {
+      "tag": "a",
+      "text": "Free Tools",
+      "href": "/free-tools"
+    },
+    {
+      "tag": "a",
+      "text": "Benchmarks",
+      "href": "/benchmarks/q2-2026"
+    },
+    {
+      "tag": "a",
+      "text": "About",
+      "href": "/about"
+    },
+    {
+      "tag": "a",
+      "text": "Help Center",
+      "href": "/help"
+    },
+    {
+      "tag": "a",
+      "text": "Privacy",
+      "href": "/privacy"
+    },
+    {
+      "tag": "a",
+      "text": "Terms of Sale & Use",
+      "href": "/terms"
+    },
+    {
+      "tag": "a",
+      "text": "Interview Thomas Marcelle — Xymag.tv",
+      "href": "https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/"
+    },
+    {
+      "tag": "a",
+      "text": "Naano on FounderTrace",
+      "href": "https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/"
+    },
+    {
+      "tag": "a",
+      "text": "Naano on TechnicalBeep",
+      "href": "https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/"
+    },
+    {
+      "tag": "a",
+      "text": "Best B2B influencer platforms 2026",
+      "href": "/best-b2b-influencer-marketing-platforms-2026"
+    },
+    {
+      "tag": "a",
+      "text": "Creator-led growth for B2B",
+      "href": "/blog/creator-led-growth-b2b"
+    },
+    {
+      "tag": "a",
+      "text": "B2B influencer marketing cost",
+      "href": "/blog/b2b-influencer-marketing-cost"
+    },
+    {
+      "tag": "a",
+      "text": "What is a B2B creator marketplace?",
+      "href": "/blog/what-is-a-b2b-creator-marketplace"
+    },
+    {
+      "tag": "a",
+      "text": "Launch a LinkedIn creator campaign",
+      "href": "/blog/launch-b2b-linkedin-creator-campaign"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn Creator Marketplace in Europe",
+      "href": "/blog/linkedin-creator-marketplace-europe"
+    },
+    {
+      "tag": "a",
+      "text": "How to pay B2B creators",
+      "href": "/blog/how-to-pay-b2b-creators"
+    },
+    {
+      "tag": "a",
+      "text": "Creator Marketplace explained",
+      "href": "/blog/linkedin-creator-marketplace-explained"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn Ads vs creator-led CPL",
+      "href": "/blog/linkedin-ads-vs-creator-led-cpl"
+    },
+    {
+      "tag": "a",
+      "text": "Nano vs macro creators in B2B",
+      "href": "/blog/nano-vs-macro-creators-b2b-ctr"
+    },
+    {
+      "tag": "a",
+      "text": "B2B influence on LinkedIn",
+      "href": "/blog/b2b-influence-linkedin"
+    },
+    {
+      "tag": "a",
+      "text": "Founder-led distribution for SaaS",
+      "href": "/blog/founder-led-distribution-b2b-saas"
+    },
+    {
+      "tag": "a",
+      "text": "Naano vs alternatives",
+      "href": "/blog/naano-vs-alternatives"
+    },
+    {
+      "tag": "a",
+      "text": "llms.txt",
+      "href": "/llms.txt"
+    },
+    {
+      "tag": "a",
+      "text": "pricing.md",
+      "href": "/pricing.md"
+    },
+    {
+      "tag": "a",
+      "text": "Reports & data",
+      "href": "/reports"
+    },
+    {
+      "tag": "a",
+      "text": "Trustpilot reviews",
+      "href": "https://fr.trustpilot.com/review/www.naano.xyz"
+    },
+    {
+      "tag": "a",
+      "text": "Privacy policy",
+      "href": "/privacy"
+    },
+    {
+      "tag": "button",
+      "text": "Reject",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Allow",
+      "href": null
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "name": null,
+      "placeholder": "Acme",
+      "aria": null
+    },
+    {
+      "type": "text",
+      "name": null,
+      "placeholder": "company.com",
+      "aria": null
+    },
+    {
+      "type": "email",
+      "name": null,
+      "placeholder": "you@company.com",
+      "aria": null
+    },
+    {
+      "type": "input",
+      "name": null,
+      "placeholder": null,
+      "aria": "Exact creator budget"
+    },
+    {
+      "type": "text",
+      "name": null,
+      "placeholder": "e.g. RevOps leaders at B2B SaaS companies",
+      "aria": null
+    },
+    {
+      "type": "text",
+      "name": "website",
+      "placeholder": null,
+      "aria": null
+    }
+  ],
+  "links": [
+    "/",
+    "/login",
+    "/book",
+    "/blog/nano-vs-macro-creators-b2b-ctr",
+    "/blog/what-is-a-b2b-creator-marketplace",
+    "/pricing",
+    "/about",
+    "/free-tools",
+    "/blog/how-to-find-b2b-creators-linkedin",
+    "/blog/best-b2b-creator-marketplace",
+    "/blog/launch-b2b-linkedin-creator-campaign",
+    "/blog/b2b-influencer-marketing-cost",
+    "/blog/how-to-write-b2b-sponsored-post",
+    "/register",
+    "/#how-it-works",
+    "https://www.linkedin.com/company/naanooo/",
+    "/#how-it-works",
+    "/#pricing",
+    "/#faq",
+    "/blog",
+    "/free-tools",
+    "/benchmarks/q2-2026",
+    "/about",
+    "/help",
+    "/privacy",
+    "/terms",
+    "https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/",
+    "https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/",
+    "https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/",
+    "/best-b2b-influencer-marketing-platforms-2026",
+    "/blog/creator-led-growth-b2b",
+    "/blog/b2b-influencer-marketing-cost",
+    "/blog/what-is-a-b2b-creator-marketplace",
+    "/blog/launch-b2b-linkedin-creator-campaign",
+    "/blog/linkedin-creator-marketplace-europe",
+    "/blog/how-to-pay-b2b-creators",
+    "/blog/linkedin-creator-marketplace-explained",
+    "/blog/linkedin-ads-vs-creator-led-cpl",
+    "/blog/nano-vs-macro-creators-b2b-ctr",
+    "/blog/b2b-influence-linkedin",
+    "/blog/founder-led-distribution-b2b-saas",
+    "/blog/naano-vs-alternatives",
+    "/llms.txt",
+    "/pricing.md",
+    "/reports",
+    "https://fr.trustpilot.com/review/www.naano.xyz",
+    "/privacy"
+  ],
+  "bodySnippet": "Already have an account?\nSign in\nFREE LINKEDIN CREATOR SEARCH\nFind the LinkedIn creators your buyers already trust.\n\nSkip weeks of manual sourcing. Tell us what you're launching, and a real person at Naano hand-picks the creators worth contacting — with pricing and audience fit — in your inbox within 48 hours. Free, and there's nothing to commit to.\n\nHand-picked by a human, not an algorithm\nFree — no account, no card, no commitment\nIn your inbox within 48 hours\nWHAT YOU RECEIVE\nA shortlist you can act on the same day.\n\nWe return the creators who genuinely fit your campaign and audience — each with pricing, audience fit, and why they belong in your campaign. The list scales with your budget, from a few hand-picked profiles to a full roster.\n\n2,000+\nvetted B2B creators\n48h\nto your inbox\n€0\nno commitment\n↗\nNo artificial creator count\nEvery profile includes pricing, audience fit and a clear reason why they belong in your campaign.\nExample matches\nBased on your brief\nClara Moreau\nSales advisor · B2B & AI\n47%\nICP audience\nKarim Benali\nProduct leader · B2B SaaS\n54K\navg. views\nThibault Louis\nSaaS founder · Growth\n€870\nper post\nSourced by the Naano campaign team\nInside our marketplace and beyond it.\nGet your creator shortlist.\n\nTakes 2 minutes. No account, no card — just your brief.\n\nHuman-led\nCompany name\nWebsite · optional\nWork email\nWhat's your goal?\nGenerate leads\nDrive demos and qualified demand\nBuild awareness\nReach your market repeatedly\nLaunch a product\nIntroduce a new offer or feature\nExact creator budget · campaign spend only\n€\nEUR\nEnter the exact amount you want to spend\n€10,000\n€2,500\n€10,000\n€50,000\nWho do you want to reach?\nGet my free creator shortlist →\n\nFree creator selection · No commitment · Delivered by email within 48h\n\nWant Naano to run the entire campaign?\nTalk to the managed campaigns team →\nTrusted by B2B teams at\nHow to find LinkedIn creators for your campaign\n\nYou can search LinkedIn by hand, buy a creator database, or have someone do it for you. This tool is the third option, and it costs nothing.\n\n1\nDescribe your campaign\n\nTell us what you sell, who your buyer is, and roughly what budget you are working with. Four fields, about two minutes.\n\n2\nA human searches\n\nA member of the Naano campaign team searches inside the Naano marketplace and across the wider LinkedIn ecosystem for creators whose audience genuinely overlaps your buyer.\n\n3\nReceive your shortlist\n\nWithin 48 hours you get the creators worth contacting, each with pricing, audien"
+}

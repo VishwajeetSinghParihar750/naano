@@ -1,0 +1,52 @@
+---
+description: /swe human-gated SWE state machine — gates, artifacts, reviewers
+alwaysApply: true
+---
+
+# /swe rules
+
+Stages: `INTAKE → SHAPE → APPROVE → IMPLEMENT → VERIFY →
+[PROD_CHECK] → HUMAN_REVIEW → SHIP`
+
+`PROD_CHECK` is **optional** (skip by default for small / assignment work;
+run when cross-cutting, auth, data, or prod risk).
+
+## Chat-scoped state
+
+Each Cursor chat owns `.workflow/chats/<session_id>/` (`$SWE_WORKFLOW_DIR`).
+New chat → fresh folder. Never write runtime artifacts to `.workflow/` root.
+Templates stay in `.workflow/templates/`.
+
+## Gates (must stop)
+
+1. Shape approval (human-led plan; one gate — go implement)
+2. Plan invalid during implementation
+3. Blocking verification findings
+4. Production `NOT_READY` blockers — only when PROD_CHECK ran
+5. Human `APPROVE` / `REQUEST_CHANGES`
+6. Separate confirmation before commit / push / PR
+
+## Artifacts
+
+Persist under `$SWE_WORKFLOW_DIR/`: `state.md`, `brief.md`, `decisions.md`,
+`plan.md`, `implementation.md`, `review.md`, `production-readiness.md` (if
+used), `human-review.md`, `ship.md`.
+
+Resume from that chat's `state.md`. Do not re-run completed stages unless asked
+or looping after `REQUEST_CHANGES`. Do not read another chat's folder.
+
+## Roles
+
+- **SHAPE:** human-dominant — agent investigates and drafts; human steers and locks decisions.
+- **IMPLEMENT:** agent-dominant — follow approved plan; smallest correct diff.
+- **VERIFY / reviewers:** independent, read-only.
+
+## Reviewers
+
+`diff-minimizer`, `code-reviewer`, `bug-hunter`, `test-reviewer`,
+`production-reviewer` — aggregate into `review.md` / `production-readiness.md`.
+
+## Integrations
+
+Manual brief text is the default. Tickets / Linear are optional enrichment.
+GitHub via `gh` when shipping.

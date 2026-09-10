@@ -1,0 +1,39 @@
+# Dependencies & build
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+frontend/dist/
+backend/dist/
+*.tsbuildinfo
+
+# Env (never commit secrets)
+.env
+frontend/.env
+backend/.env
+!.env.example
+!frontend/.env.example
+!backend/.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+
+# Logs / coverage (app runtime, not agent capture)
+*.log
+coverage/
+.nyc_output/
+
+# Vite / tooling caches
+.vite/
+.turbo/
+
+# Prisma
+backend/prisma/*.db
+backend/prisma/*.db-journal
+
+# NOTE: Do NOT ignore .agent-logs/ — it ships with the repo per assignment rules.

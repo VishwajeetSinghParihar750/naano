@@ -1,0 +1,61 @@
+{
+  "title": "Naano: B2B LinkedIn Creator Marketplace",
+  "url": "https://naano.com/login",
+  "headings": [
+    "Welcome back",
+    "Welcome back."
+  ],
+  "ctas": [
+    {
+      "tag": "button",
+      "text": "EN",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Continue with LinkedIn",
+      "href": "/api/auth/oauth/start?provider=linkedin_oidc"
+    },
+    {
+      "tag": "a",
+      "text": "Continue with Google",
+      "href": "/api/auth/oauth/start?provider=google"
+    },
+    {
+      "tag": "a",
+      "text": "Forgot password?",
+      "href": "/login/forgot-password"
+    },
+    {
+      "tag": "button",
+      "text": "Sign in",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Sign up",
+      "href": "/register"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "email",
+      "name": "email",
+      "placeholder": "john@company.com",
+      "aria": null
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "placeholder": "••••••••",
+      "aria": null
+    }
+  ],
+  "links": [
+    "/api/auth/oauth/start?provider=linkedin_oidc",
+    "/api/auth/oauth/start?provider=google",
+    "/login/forgot-password",
+    "/register"
+  ],
+  "bodySnippet": "EN\nWelcome back\n\nSign in to your account\n\nContinue with LinkedIn\nContinue with Google\nOR CONTINUE WITH EMAIL\nEMAIL\nPASSWORD\nForgot password?\nSign in\n\nDon't have an account? Sign up\n\nWelcome back.\n\nSign in to manage your campaigns, creators and payouts, all in one place."
+}

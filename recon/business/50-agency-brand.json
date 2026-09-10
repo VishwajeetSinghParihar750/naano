@@ -1,0 +1,35 @@
+{
+  "url": "https://naano.com/agency",
+  "headings": [
+    "Run every client campaign from one portfolio.",
+    "Create your agency account"
+  ],
+  "buttons": [
+    "Naano",
+    "Continue",
+    "Log in"
+  ],
+  "inputs": [
+    {
+      "type": "input",
+      "name": null,
+      "placeholder": null
+    },
+    {
+      "type": "input",
+      "name": null,
+      "placeholder": null
+    },
+    {
+      "type": "email",
+      "name": null,
+      "placeholder": null
+    },
+    {
+      "type": "password",
+      "name": null,
+      "placeholder": null
+    }
+  ],
+  "bodySnippet": "Naano\nBRAND AGENCY WORKSPACE\nRun every client campaign from one portfolio.\n\nCreate client workspaces, assign their budgets and monitor delivery without mixing accounts.\n\nOne workspace per client company\nBudgets allocated from one dashboard\nOne operational queue across campaigns\nSTEP 1 OF 3\nCreate your agency account\n\nUse the login of the person who will manage client workspaces.\n\nFirst name\nLast name\nWork email\nPassword\nAt least 8 characters\nContinue\n\nAlready have an account? Log in"
+}

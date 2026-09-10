@@ -1,0 +1,37 @@
+{
+  "title": "Naano: B2B LinkedIn Creator Marketplace",
+  "url": "https://naano.com/register",
+  "headings": [
+    "Create your account",
+    "One platform. Two sides."
+  ],
+  "ctas": [
+    {
+      "tag": "button",
+      "text": "EN",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "I'm a creator Get paid to create LinkedIn content for B2B brands you actually us",
+      "href": "/register?role=influencer"
+    },
+    {
+      "tag": "a",
+      "text": "I'm a brand Find creators, launch campaigns, and trace real pipeline back to eac",
+      "href": "/register?role=saas"
+    },
+    {
+      "tag": "a",
+      "text": "Sign in",
+      "href": "/login?reauth=1"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    "/register?role=influencer",
+    "/register?role=saas",
+    "/login?reauth=1"
+  ],
+  "bodySnippet": "EN\nCreate your account\n\nFirst, who are you here as?\n\nI'm a creator\n\nGet paid to create LinkedIn content for B2B brands you actually use.\n\nI'm a brand\n\nFind creators, launch campaigns, and trace real pipeline back to each post.\n\nAlready have an account? Sign in\n\nOne platform. Two sides.\n\nCreators get paid to post. B2B brands get real pipeline. Pick where you fit and we'll set the rest up in a couple of minutes."
+}

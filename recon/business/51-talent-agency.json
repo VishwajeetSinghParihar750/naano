@@ -1,0 +1,35 @@
+{
+  "url": "https://naano.com/talent-agency",
+  "headings": [
+    "Run every creator operation from one place.",
+    "Create your agency account"
+  ],
+  "buttons": [
+    "Naano",
+    "Continue",
+    "Log in"
+  ],
+  "inputs": [
+    {
+      "type": "input",
+      "name": null,
+      "placeholder": null
+    },
+    {
+      "type": "input",
+      "name": null,
+      "placeholder": null
+    },
+    {
+      "type": "email",
+      "name": null,
+      "placeholder": null
+    },
+    {
+      "type": "password",
+      "name": null,
+      "placeholder": null
+    }
+  ],
+  "bodySnippet": "Naano\nTALENT AGENCY WORKSPACE\nRun every creator operation from one place.\n\nImport your roster, manage collaborations and collect agency earnings without creating accounts for your creators.\n\nImport all your creators in minutes\nCreators never need to log in\nOne task list for the whole agency\nSTEP 1 OF 3\nCreate your agency account\n\nThis login belongs to the agency manager, not to a creator.\n\nFirst name\nLast name\nWork email\nPassword\nAt least 8 characters\nContinue\n\nAlready have an account? Log in"
+}

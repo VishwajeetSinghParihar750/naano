@@ -1,0 +1,16 @@
+{
+  "url": "https://naano.com/register?role=influencer",
+  "text": "EN\nBack to my account\nSTEP 2 OF 4\nAdd your public LinkedIn profile\n\nNo extension is needed. We’ll retrieve only the minimum public information required to create your Basic card.\n\nPUBLIC LINKEDIN PROFILE URL\nBy clicking below, you authorize Naano to read your public profile once: name, photo, headline, country and follower count. We do not import your posts, engagement or private analytics.\nImport my public profile\nYOUR MARKETPLACE CARD\nBuild a card brands can trust.\n\nIt updates live with your profile, analytics, positioning and price.\n\nS\nSahil Creator\n\nYour LinkedIn headline and topics will appear here.\n\nData\nPending\nFollowers\n—\nEst. impressions\n—\nCost / post\n—\nS\nPerformance & ICP\n\nPublic LinkedIn profile data from Apify (Basic card).\n\nFollowers\n—\nReactions per post\n—\nAverage\nTypical impressions per post\n—\nComments per post\n—\nAverage\nEngagement rate\n—\nPublic LinkedIn data estimated by Naano\nAbout\n\nNo LinkedIn bio yet.\n\nWho you target (est.)\n\nEstimated from your public posts + bio (dominant themes).\n\nTarget pending\n\nRe-import LinkedIn to estimate your target from public posts.",
+  "inputs": [
+    {
+      "type": "url",
+      "name": "linkedinUrl",
+      "placeholder": "https://www.linkedin.com/in/you"
+    }
+  ],
+  "buttons": [
+    "EN",
+    "Back to my account",
+    "Import my public profile"
+  ]
+}

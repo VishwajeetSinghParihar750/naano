@@ -1,0 +1,315 @@
+{
+  "title": "Naano for agencies — Brand and creator operations",
+  "url": "https://naano.com/agencies",
+  "headings": [
+    "Choose the workspace that matches your agency.",
+    "What does your agency manage?",
+    "I manage campaigns for companies",
+    "I represent and manage creators",
+    "Not sure which workspace fits your agency?",
+    "Audience measurement"
+  ],
+  "ctas": [
+    {
+      "tag": "a",
+      "text": "For companies",
+      "href": "/"
+    },
+    {
+      "tag": "a",
+      "text": "For creators",
+      "href": "/creators"
+    },
+    {
+      "tag": "a",
+      "text": "For agencies",
+      "href": "/agencies"
+    },
+    {
+      "tag": "button",
+      "text": "Resources",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "EN",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Sign in",
+      "href": "/login?reauth=1"
+    },
+    {
+      "tag": "a",
+      "text": "Choose your agency",
+      "href": "/agencies#choose"
+    },
+    {
+      "tag": "a",
+      "text": "For companies",
+      "href": "/"
+    },
+    {
+      "tag": "a",
+      "text": "For creators",
+      "href": "/creators"
+    },
+    {
+      "tag": "a",
+      "text": "For agencies",
+      "href": "/agencies"
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "href": "/blog"
+    },
+    {
+      "tag": "a",
+      "text": "Free Tools",
+      "href": "/free-tools"
+    },
+    {
+      "tag": "a",
+      "text": "Case study: BlogSEO",
+      "href": "/case-studies/blogseo"
+    },
+    {
+      "tag": "a",
+      "text": "Choose your agency",
+      "href": "#choose"
+    },
+    {
+      "tag": "a",
+      "text": "Create a brand agency workspace",
+      "href": "/agency"
+    },
+    {
+      "tag": "a",
+      "text": "Create a creator agency workspace",
+      "href": "/talent-agency"
+    },
+    {
+      "tag": "a",
+      "text": "Book a call",
+      "href": "/book"
+    },
+    {
+      "tag": "a",
+      "text": "Features",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "a",
+      "text": "Pricing",
+      "href": "/#pricing"
+    },
+    {
+      "tag": "a",
+      "text": "FAQs",
+      "href": "/#faq"
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "href": "/blog"
+    },
+    {
+      "tag": "a",
+      "text": "Reports & benchmarks",
+      "href": "/reports"
+    },
+    {
+      "tag": "a",
+      "text": "About",
+      "href": "/about"
+    },
+    {
+      "tag": "a",
+      "text": "Help Center",
+      "href": "/help"
+    },
+    {
+      "tag": "a",
+      "text": "Privacy",
+      "href": "/privacy"
+    },
+    {
+      "tag": "a",
+      "text": "Terms of Sale & Use",
+      "href": "/terms"
+    },
+    {
+      "tag": "a",
+      "text": "llms.txt",
+      "href": "/llms.txt"
+    },
+    {
+      "tag": "a",
+      "text": "pricing.md",
+      "href": "/pricing.md"
+    },
+    {
+      "tag": "a",
+      "text": "Reports & data",
+      "href": "/reports"
+    },
+    {
+      "tag": "a",
+      "text": "Interview Thomas Marcelle, Xymag.tv",
+      "href": "https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/"
+    },
+    {
+      "tag": "a",
+      "text": "Naano on FounderTrace",
+      "href": "https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/"
+    },
+    {
+      "tag": "a",
+      "text": "Naano on TechnicalBeep",
+      "href": "https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn creator marketplace",
+      "href": "/linkedin-creator-marketplace"
+    },
+    {
+      "tag": "a",
+      "text": "Best B2B influencer platforms 2026",
+      "href": "/best-b2b-influencer-marketing-platforms-2026"
+    },
+    {
+      "tag": "a",
+      "text": "B2B influencer marketing cost",
+      "href": "/blog/b2b-influencer-marketing-cost"
+    },
+    {
+      "tag": "a",
+      "text": "Launch a LinkedIn creator campaign",
+      "href": "/blog/launch-b2b-linkedin-creator-campaign"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn Creator Marketplace in Europe",
+      "href": "/blog/linkedin-creator-marketplace-europe"
+    },
+    {
+      "tag": "a",
+      "text": "How to pay B2B creators",
+      "href": "/blog/how-to-pay-b2b-creators"
+    },
+    {
+      "tag": "a",
+      "text": "Creator Marketplace explained",
+      "href": "/blog/linkedin-creator-marketplace-explained"
+    },
+    {
+      "tag": "a",
+      "text": "What is a B2B creator marketplace?",
+      "href": "/blog/what-is-a-b2b-creator-marketplace"
+    },
+    {
+      "tag": "a",
+      "text": "Creator-led growth for B2B",
+      "href": "/blog/creator-led-growth-b2b"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn Ads vs creator-led CPL",
+      "href": "/blog/linkedin-ads-vs-creator-led-cpl"
+    },
+    {
+      "tag": "a",
+      "text": "Nano vs macro creators in B2B",
+      "href": "/blog/nano-vs-macro-creators-b2b-ctr"
+    },
+    {
+      "tag": "a",
+      "text": "B2B influence on LinkedIn",
+      "href": "/blog/b2b-influence-linkedin"
+    },
+    {
+      "tag": "a",
+      "text": "Founder-led distribution for SaaS",
+      "href": "/blog/founder-led-distribution-b2b-saas"
+    },
+    {
+      "tag": "a",
+      "text": "Naano vs alternatives",
+      "href": "/blog/naano-vs-alternatives"
+    },
+    {
+      "tag": "a",
+      "text": "Trustpilot reviews",
+      "href": "https://fr.trustpilot.com/review/www.naano.xyz"
+    },
+    {
+      "tag": "a",
+      "text": "Privacy policy",
+      "href": "/privacy"
+    },
+    {
+      "tag": "button",
+      "text": "Reject",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Allow",
+      "href": null
+    }
+  ],
+  "inputs": [],
+  "links": [
+    "/agencies",
+    "/",
+    "/creators",
+    "/agencies",
+    "/login?reauth=1",
+    "/agencies#choose",
+    "/",
+    "/creators",
+    "/agencies",
+    "/blog",
+    "/free-tools",
+    "/case-studies/blogseo",
+    "/agency",
+    "/talent-agency",
+    "/book",
+    "https://www.linkedin.com/company/naanooo/",
+    "/#how-it-works",
+    "/#pricing",
+    "/#faq",
+    "/blog",
+    "/reports",
+    "/about",
+    "/help",
+    "/privacy",
+    "/terms",
+    "/llms.txt",
+    "/pricing.md",
+    "/reports",
+    "https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/",
+    "https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/",
+    "https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/",
+    "/linkedin-creator-marketplace",
+    "/best-b2b-influencer-marketing-platforms-2026",
+    "/blog/b2b-influencer-marketing-cost",
+    "/blog/launch-b2b-linkedin-creator-campaign",
+    "/blog/linkedin-creator-marketplace-europe",
+    "/blog/how-to-pay-b2b-creators",
+    "/blog/linkedin-creator-marketplace-explained",
+    "/blog/what-is-a-b2b-creator-marketplace",
+    "/blog/creator-led-growth-b2b",
+    "/blog/linkedin-ads-vs-creator-led-cpl",
+    "/blog/nano-vs-macro-creators-b2b-ctr",
+    "/blog/b2b-influence-linkedin",
+    "/blog/founder-led-distribution-b2b-saas",
+    "/blog/naano-vs-alternatives",
+    "https://fr.trustpilot.com/review/www.naano.xyz",
+    "/privacy"
+  ],
+  "bodySnippet": "For companies\nFor creators\nFor agencies\nResources\nEN\nSign in\nChoose your agency\nNAANO FOR AGENCIES\nChoose the workspace that matches your agency.\n\nNaano separates brand operations from creator management. Choose your setup and create the right workspace for your agency.\n\nChoose your agency\nTWO DISTINCT PRODUCTS\nWhat does your agency manage?\n01\nBRAND AGENCY\nI manage campaigns for companies\n\nOperate separate client workspaces, budgets, campaigns and reporting from one portfolio.\n\nCreate one workspace per client\nAdd and allocate client budgets\nTrack campaigns and next actions\nCreate a brand agency workspace\nYou will create the agency manager account first.\n02\nCREATOR AGENCY\nI represent and manage creators\n\nImport your roster, manage every profile and run collaborations without creator logins.\n\nImport any creator roster CSV\nManage rates and creator profiles\nTrack collaborations and earnings\nCreate a creator agency workspace\nYour creators do not need individual Naano accounts.\nTALK TO NAANO\nNot sure which workspace fits your agency?\n\nBook a 30-minute agency call. We will look at how you manage clients or creators and point you to the right setup.\n\nBook a call\n30 minutes with the Naano team. No commitment.\n\nTurn LinkedIn creators into your best acquisition channel.\n\nPRODUCT\nFeatures\nPricing\nFAQs\nBlog\nReports & benchmarks\nAbout\nCOMPANY\nHelp Center\nPrivacy\nTerms of Sale & Use\nFor AI agents\nllms.txt\npricing.md\nReports & data\nPRESS\nInterview Thomas Marcelle, Xymag.tv\nNaano on FounderTrace\nNaano on TechnicalBeep\nRESOURCES\nLinkedIn creator marketplace\nBest B2B influencer platforms 2026\nB2B influencer marketing cost\nLaunch a LinkedIn creator campaign\nLinkedIn Creator Marketplace in Europe\nHow to pay B2B creators\nCreator Marketplace explained\nWhat is a B2B creator marketplace?\nCreator-led growth for B2B\nLinkedIn Ads vs creator-led CPL\nNano vs macro creators in B2B\nB2B influence on LinkedIn\nFounder-led distribution for SaaS\nNaano vs alternatives\n© 2026 naano. All rights reserved.\nTrustpilot reviews\nAudience measurement\n\nWith your permission, Google Analytics helps us understand visits and improve Naano. Sensitive and technical URLs are excluded. You can change your choice at any time via Cookies. Privacy policy\n\nReject\nAllow"
+}

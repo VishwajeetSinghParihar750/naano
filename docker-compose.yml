@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: naano-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: naano
+      POSTGRES_PASSWORD: naano
+      POSTGRES_DB: naano
+    ports:
+      - "5435:5432"
+    volumes:
+      - naano_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U naano -d naano"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  naano_pg_data:

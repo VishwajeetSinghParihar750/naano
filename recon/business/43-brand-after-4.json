@@ -1,0 +1,41 @@
+{
+  "url": "https://naano.com/register?role=saas",
+  "headings": [
+    "Join Naano",
+    "Creators. Brands. Results."
+  ],
+  "buttons": [
+    "EN",
+    "Back to sign-up options",
+    "LinkedIn",
+    "Word of mouth",
+    "Google search",
+    "A creator",
+    "Other",
+    "Continue",
+    "Sign in here"
+  ],
+  "inputs": [
+    {
+      "type": "input",
+      "name": "firstName",
+      "placeholder": "First name"
+    },
+    {
+      "type": "input",
+      "name": "lastName",
+      "placeholder": "Last name"
+    },
+    {
+      "type": "email",
+      "name": "email",
+      "placeholder": "you@company.com"
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "placeholder": "Create a strong password"
+    }
+  ],
+  "bodySnippet": "EN\nBack to sign-up options\nJoin Naano\n\nCreators. Brands. Results.\n\nThe #1 platform to run LinkedIn creator campaigns that drive real business.\n\nFIRST NAME\nLAST NAME\nBUSINESS EMAIL\nPASSWORD\nHOW DID YOU HEAR ABOUT US?\nLinkedIn\nWord of mouth\nGoogle search\nA creator\nOther\nContinue\n\nAlready have an account? Sign in here\n\nCreators. Brands. Results.\n\nRun LinkedIn creator campaigns that drive real business - discover creators, track performance, pay in one click.\n\nBuilt for B2B marketing teams"
+}

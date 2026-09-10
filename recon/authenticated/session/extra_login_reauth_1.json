@@ -1,0 +1,32 @@
+{
+  "url": "https://naano.com/login?reauth=1",
+  "title": "Naano: B2B LinkedIn Creator Marketplace",
+  "headings": [
+    "Welcome back",
+    "Welcome back."
+  ],
+  "nav": [],
+  "allLinks": [
+    "/api/auth/oauth/start?provider=linkedin_oidc",
+    "/api/auth/oauth/start?provider=google",
+    "/login/forgot-password",
+    "/register"
+  ],
+  "buttons": [
+    "EN",
+    "Sign in"
+  ],
+  "inputs": [
+    {
+      "type": "email",
+      "name": "email",
+      "placeholder": "john@company.com"
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "placeholder": "••••••••"
+    }
+  ],
+  "bodySnippet": "EN\nWelcome back\n\nSign in to your account\n\nContinue with LinkedIn\nContinue with Google\nOR CONTINUE WITH EMAIL\nEMAIL\nPASSWORD\nForgot password?\nSign in\n\nDon't have an account? Sign up\n\nWelcome back.\n\nSign in to manage your campaigns, creators and payouts, all in one place."
+}

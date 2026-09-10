@@ -1,0 +1,11 @@
+{
+  "url": "https://naano.com/register?role=saas",
+  "text": "EN\nCheck your email\n\nWe sent a 6-digit code to\n\nsahil.8x.1789015733753@mailinator.com\nEdit email\n\nEnter it below, stay on this page.\n\nVerify & continueResend code in 59s\nCreators. Brands. Results.\n\nRun LinkedIn creator campaigns that drive real business - discover creators, track performance, pay in one click.\n\nBuilt for B2B marketing teams",
+  "inputs": [
+    {
+      "type": "text",
+      "name": "code",
+      "placeholder": "000000"
+    }
+  ]
+}

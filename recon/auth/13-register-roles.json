@@ -1,0 +1,59 @@
+{
+  "id": "13-register-roles",
+  "requestedUrl": "https://naano.com/register",
+  "ok": true,
+  "finalUrl": "https://naano.com/register",
+  "screenshot": "recon/auth/13-register-roles.png",
+  "rolesFound": [
+    {
+      "text": "EN Create your account First, who are you here as? I'm a creator Get paid to cre",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "EN Create your account First, who are you here as? I'm a creator Get paid to cre",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "EN Create your account First, who are you here as? I'm a creator Get paid to cre",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "I'm a creator Get paid to create LinkedIn content for B2B brands you actually us",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "I'm a creator Get paid to create LinkedIn content for B2B brands you actually us",
+      "tag": "A",
+      "href": "/register?role=influencer"
+    },
+    {
+      "text": "I'm a creator",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "I'm a brand Find creators, launch campaigns, and trace real pipeline back to eac",
+      "tag": "A",
+      "href": "/register?role=saas"
+    },
+    {
+      "text": "I'm a brand",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "One platform. Two sides. Creators get paid to post. B2B brands get real pipeline",
+      "tag": "DIV",
+      "href": null
+    },
+    {
+      "text": "One platform. Two sides. Creators get paid to post. B2B brands get real pipeline",
+      "tag": "DIV",
+      "href": null
+    }
+  ]
+}

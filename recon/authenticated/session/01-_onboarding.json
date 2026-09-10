@@ -1,0 +1,134 @@
+{
+  "url": "https://naano.com/creator#home",
+  "title": "Naano - Creator studio",
+  "headings": [
+    "Welcome",
+    "Opportunities",
+    "Paid campaigns open at 1,000 followers",
+    "Collaborations",
+    "Analytics",
+    "Public LinkedIn posts are being imported",
+    "Community",
+    "The room where B2B creators get better together.",
+    "Make Naano part of your LinkedIn story",
+    "Naano campaign leaderboard",
+    "Earnings",
+    "Messages",
+    "Connect your AI assistant",
+    "Connect Naano",
+    "Settings",
+    "Personal profile",
+    "Social links",
+    "Your price per Post (net to you)",
+    "Company and billing",
+    "Bank details",
+    "Delete your account",
+    "Keep your LinkedIn profile up to date",
+    "This action is irreversible"
+  ],
+  "nav": [],
+  "allLinks": [],
+  "buttons": [
+    "€0",
+    "EN",
+    "FR",
+    "Integrations",
+    "Settings",
+    "Guided tour",
+    "Sign out",
+    "ss",
+    "PUBLIC POST REACH — Waiting for public post data",
+    "PUBLIC POSTS 0 Original LinkedIn posts found",
+    "PUBLIC ENGAGEMENTS 0 Reactions, comments and reposts",
+    "LINKEDIN FOLLOWERS — Imported from the public profile",
+    "Open card",
+    "Copy card link",
+    "Share my card",
+    "Open card",
+    "Explore",
+    "See all",
+    "All industries",
+    "All countries",
+    "All 0",
+    "Active 0",
+    "Needs action 0",
+    "Applications sent 0",
+    "Declined 0",
+    "Completed 0",
+    "1",
+    "Publish my card",
+    "Estimated impressions",
+    "Posts",
+    "Edit",
+    "Connect Stripe",
+    "Withdraw all",
+    "Confirm withdrawal",
+    "Cancel",
+    "Confirm",
+    "Earnings and withdrawals",
+    "Awaiting release 0",
+    "Invoices 0",
+    "Complete my information"
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Search for a campaign or a brand…"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Search an industry…"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Search a country…"
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "select-one",
+      "name": ""
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": "Amount"
+    },
+    {
+      "type": "search",
+      "name": "",
+      "placeholder": "Search conversations"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "Write a message…"
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": ""
+    },
+    {
+      "type": "text",
+      "name": "",
+      "placeholder": "https://x.com/your-account"
+    },
+    {
+      "type": "number",
+      "name": "",
+      "placeholder": ""
+    }
+  ],
+  "bodySnippet": "€0\nEN\nFR\nss\nCreator workspace\nWelcome\nYour creator activity, at a glance.\nPUBLIC POST REACH\n—\nWaiting for public post data\nPUBLIC POSTS\n0\nOriginal LinkedIn posts found\nPUBLIC ENGAGEMENTS\n0\nReactions, comments and reposts\nLINKEDIN FOLLOWERS\n—\nImported from the public profile\nYour creator card\n\nThis is how brands discover your positioning and collaboration offer.\n\nOpen card\nCopy card link\nShare my card\nYour launch guide\n\nPersonalized for your Marketplace status\n\nOpen card\nCard and price ready\nYour positioning and offer are ready to review.\nComplete\nRecommended opportunities\n\nThe 3 campaigns that best match your audience.\n\nExplore\n Paid campaigns open at 1,000 followers - You have 0 followers. Keep posting and come back - re-check your count once a week from Settings.\nActive collaborations\n\nEverything currently moving from brief to publication.\n\nSee all\nBrand\tStatus\tNext action\tDue\tNet\nNo active collaborations."
+}

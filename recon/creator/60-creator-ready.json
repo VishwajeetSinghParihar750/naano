@@ -1,0 +1,26 @@
+{
+  "url": "https://naano.com/register?role=influencer",
+  "text": "EN\nBack to sign-up options\nSTEP 1 OF 4\nJoin Naano\n\nGet paid to create LinkedIn content for B2B brands you actually use.\n\nFIRST NAME\nLAST NAME\nEMAIL\nPASSWORD\nHOW DID YOU HEAR ABOUT US?\nLinkedIn\nAnother creator\nWord of mouth\nGoogle search\nOther\nContinue\n\nAlready have an account? Sign in here\n\nYOUR MARKETPLACE CARD\nBuild a card brands can trust.\n\nIt updates live with your profile, analytics, positioning and price.\n\nS\nSahil 8x\n\nYour LinkedIn headline and topics will appear here.\n\nData\nPending\nFollowers\n—\nEst. impressions\n—\nCost / post\n—\nS\nPerformance & ICP\n\nPublic LinkedIn profile data from Apify (Basic card).\n\nFollowers\n—\nReactions per post\n—\nAverage\nTypical impressions per post\n—\nComments per post\n—\nAverage\nEngagement rate\n—\nPublic LinkedIn data estimated by Naano\nAbout\n\nNo LinkedIn bio yet.\n\nWho you target (est.)\n\nEstimated from your public posts + bio (dominant themes).\n\nTarget pending\n\nRe-import LinkedIn to estimate your target from public posts.",
+  "inputs": [
+    {
+      "type": "text",
+      "name": "firstName",
+      "placeholder": "First name"
+    },
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last name"
+    },
+    {
+      "type": "email",
+      "name": "email",
+      "placeholder": "you@email.com"
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "placeholder": "Create a strong password"
+    }
+  ]
+}

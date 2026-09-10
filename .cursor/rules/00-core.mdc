@@ -1,0 +1,35 @@
+---
+description: Core workspace facts and hard safety rules (always applied)
+alwaysApply: true
+---
+
+# naano8xAssignment workspace
+
+Single assignment repo. Work here — not the old Wyise / saksham multi-clone layout.
+
+## SWE workflow
+
+Coding work goes through **`/swe`** (skill `swe`). Durable state is
+**chat-scoped** under `.workflow/chats/<session_id>/` (`$SWE_WORKFLOW_DIR`).
+See `.cursor/README.md`. `/solve-issue` remains an alias.
+
+**Default posture:** plan with the human; once the shape is approved, the agent
+implements without asking permission on every micro-step.
+
+## Hard rules
+
+- Human is the decision-maker on product/architecture/behavior. Stop at workflow gates.
+- Never override `Status: LOCKED` decisions in this chat's `decisions.md`.
+- No silent scope expansion or silent architectural redesign.
+- Reviewer subagents are **read-only** (no application code edits).
+- Never commit, push, or open a PR unless the human explicitly approved that
+  action in the current turn.
+- Smallest correct diff. No unrelated refactors.
+- Never add AI attribution to commits, PRs, or tickets.
+- Never `docker compose down -v`, `git reset --hard`, or drop a DB without asking.
+- Report verification clearly — what checks prove and what they don't.
+
+## Agent capture
+
+Prompt/response capture hooks write to `.agent-logs/` (ships with the repo).
+Do not add `.agent-logs/` to `.gitignore`. Do not tidy or delete log entries.

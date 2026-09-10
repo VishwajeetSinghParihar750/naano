@@ -1,0 +1,391 @@
+{
+  "title": "Naano: B2B LinkedIn Creator Marketplace",
+  "url": "https://naano.com/",
+  "headings": [
+    "The B2B LinkedIn Creator Marketplace.",
+    "Work with all the best creators.",
+    "Run creator campaigns from one place.",
+    "Find creators your buyers trust",
+    "Build a campaign brief in minutes",
+    "Manage every collaboration",
+    "Track reach, clicks, and leads",
+    "Pay creators without the admin",
+    "Real teams. Measurable pipeline.",
+    "How BlogSEO turned creator content into product signups",
+    "Proven across thousands of campaigns.",
+    "Pricing.",
+    "Run it yourself.",
+    "Get your time back.",
+    "Frequently asked questions.",
+    "Your next creator campaign starts here.",
+    "30-minute working session",
+    "Audience measurement"
+  ],
+  "ctas": [
+    {
+      "tag": "a",
+      "text": "For companies",
+      "href": "/"
+    },
+    {
+      "tag": "a",
+      "text": "For creators",
+      "href": "/creators"
+    },
+    {
+      "tag": "a",
+      "text": "For agencies",
+      "href": "/agencies"
+    },
+    {
+      "tag": "a",
+      "text": "How it works",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "button",
+      "text": "Resources",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "EN",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Sign in",
+      "href": "/login?reauth=1"
+    },
+    {
+      "tag": "a",
+      "text": "Sign up",
+      "href": "/register"
+    },
+    {
+      "tag": "a",
+      "text": "For companies",
+      "href": "/"
+    },
+    {
+      "tag": "a",
+      "text": "For creators",
+      "href": "/creators"
+    },
+    {
+      "tag": "a",
+      "text": "For agencies",
+      "href": "/agencies"
+    },
+    {
+      "tag": "a",
+      "text": "How it works",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "href": "/blog"
+    },
+    {
+      "tag": "a",
+      "text": "Free Tools",
+      "href": "/free-tools"
+    },
+    {
+      "tag": "a",
+      "text": "Case study: BlogSEO",
+      "href": "/case-studies/blogseo"
+    },
+    {
+      "tag": "a",
+      "text": "Launch a campaign",
+      "href": "/register"
+    },
+    {
+      "tag": "a",
+      "text": "See how Naano works",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "a",
+      "text": "CASE STUDY",
+      "href": "/#what-people-think"
+    },
+    {
+      "tag": "a",
+      "text": "CASE STUDY",
+      "href": "/#what-people-think"
+    },
+    {
+      "tag": "button",
+      "text": "2:40",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Read case study",
+      "href": "/case-studies/blogseo"
+    },
+    {
+      "tag": "a",
+      "text": "View post",
+      "href": "https://fr.linkedin.com/posts/thomas-higadere_cgp-banquiers-priv%C3%A9s-g%C3%A9rants-de-fonds-activity-7452932902885015553-UMO7"
+    },
+    {
+      "tag": "a",
+      "text": "View post",
+      "href": "https://www.linkedin.com/posts/robin-tempe_je-g%C3%A8re-toute-ma-prospection-en-discutant-share-7479799225610924032-ML4u"
+    },
+    {
+      "tag": "a",
+      "text": "View post",
+      "href": "https://www.linkedin.com/posts/eric-djavid-2154b991_la-plupart-des-%C3%A9quipes-sales-passent-80-share-7478351684121997312-MtzH"
+    },
+    {
+      "tag": "a",
+      "text": "View post",
+      "href": "https://www.linkedin.com/posts/marina-panova_how-i-build-my-30-day-linkedin-content-system-activity-7442495515428126721-n28g"
+    },
+    {
+      "tag": "a",
+      "text": "Get started",
+      "href": "/register"
+    },
+    {
+      "tag": "a",
+      "text": "Start for free",
+      "href": "/register"
+    },
+    {
+      "tag": "a",
+      "text": "Book a campaign call",
+      "href": "/book"
+    },
+    {
+      "tag": "a",
+      "text": "Talk to our team",
+      "href": "/book"
+    },
+    {
+      "tag": "button",
+      "text": "What is Naano?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "How does Naano find the right creators?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Which networks do you support?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "How does per-post pricing work?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "How does attribution work?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Do you handle creator payouts?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "What's the difference between Free and Done for you?",
+      "href": null
+    },
+    {
+      "tag": "button",
+      "text": "Can I upgrade or cancel anytime?",
+      "href": null
+    },
+    {
+      "tag": "a",
+      "text": "Book a campaign call",
+      "href": "/book"
+    },
+    {
+      "tag": "a",
+      "text": "Prefer to start yourself? Start for free →",
+      "href": "/register"
+    },
+    {
+      "tag": "a",
+      "text": "Features",
+      "href": "/#how-it-works"
+    },
+    {
+      "tag": "a",
+      "text": "Pricing",
+      "href": "/#pricing"
+    },
+    {
+      "tag": "a",
+      "text": "FAQs",
+      "href": "/#faq"
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "href": "/blog"
+    },
+    {
+      "tag": "a",
+      "text": "Reports & benchmarks",
+      "href": "/reports"
+    },
+    {
+      "tag": "a",
+      "text": "About",
+      "href": "/about"
+    },
+    {
+      "tag": "a",
+      "text": "Help Center",
+      "href": "/help"
+    },
+    {
+      "tag": "a",
+      "text": "Privacy",
+      "href": "/privacy"
+    },
+    {
+      "tag": "a",
+      "text": "Terms of Sale & Use",
+      "href": "/terms"
+    },
+    {
+      "tag": "a",
+      "text": "llms.txt",
+      "href": "/llms.txt"
+    },
+    {
+      "tag": "a",
+      "text": "pricing.md",
+      "href": "/pricing.md"
+    },
+    {
+      "tag": "a",
+      "text": "Reports & data",
+      "href": "/reports"
+    },
+    {
+      "tag": "a",
+      "text": "Interview Thomas Marcelle, Xymag.tv",
+      "href": "https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/"
+    },
+    {
+      "tag": "a",
+      "text": "Naano on FounderTrace",
+      "href": "https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/"
+    },
+    {
+      "tag": "a",
+      "text": "Naano on TechnicalBeep",
+      "href": "https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn creator marketplace",
+      "href": "/linkedin-creator-marketplace"
+    },
+    {
+      "tag": "a",
+      "text": "Best B2B influencer platforms 2026",
+      "href": "/best-b2b-influencer-marketing-platforms-2026"
+    },
+    {
+      "tag": "a",
+      "text": "B2B influencer marketing cost",
+      "href": "/blog/b2b-influencer-marketing-cost"
+    },
+    {
+      "tag": "a",
+      "text": "Launch a LinkedIn creator campaign",
+      "href": "/blog/launch-b2b-linkedin-creator-campaign"
+    },
+    {
+      "tag": "a",
+      "text": "LinkedIn Creator Marketplace in Europe",
+      "href": "/blog/linkedin-creator-marketplace-europe"
+    },
+    {
+      "tag": "a",
+      "text": "How to pay B2B creators",
+      "href": "/blog/how-to-pay-b2b-creators"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    "/",
+    "/",
+    "/creators",
+    "/agencies",
+    "/#how-it-works",
+    "/login?reauth=1",
+    "/register",
+    "/",
+    "/creators",
+    "/agencies",
+    "/#how-it-works",
+    "/blog",
+    "/free-tools",
+    "/case-studies/blogseo",
+    "/register",
+    "/#how-it-works",
+    "/#what-people-think",
+    "/#what-people-think",
+    "/case-studies/blogseo",
+    "https://fr.linkedin.com/posts/thomas-higadere_cgp-banquiers-priv%C3%A9s-g%C3%A9rants-de-fonds-activity-7452932902885015553-UMO7",
+    "https://www.linkedin.com/posts/robin-tempe_je-g%C3%A8re-toute-ma-prospection-en-discutant-share-7479799225610924032-ML4u",
+    "https://www.linkedin.com/posts/eric-djavid-2154b991_la-plupart-des-%C3%A9quipes-sales-passent-80-share-7478351684121997312-MtzH",
+    "https://www.linkedin.com/posts/marina-panova_how-i-build-my-30-day-linkedin-content-system-activity-7442495515428126721-n28g",
+    "/register",
+    "/register",
+    "/book",
+    "/book",
+    "/book",
+    "/register",
+    "https://www.linkedin.com/company/naanooo/",
+    "/#how-it-works",
+    "/#pricing",
+    "/#faq",
+    "/blog",
+    "/reports",
+    "/about",
+    "/help",
+    "/privacy",
+    "/terms",
+    "/llms.txt",
+    "/pricing.md",
+    "/reports",
+    "https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/",
+    "https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/",
+    "https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/",
+    "/linkedin-creator-marketplace",
+    "/best-b2b-influencer-marketing-platforms-2026",
+    "/blog/b2b-influencer-marketing-cost",
+    "/blog/launch-b2b-linkedin-creator-campaign",
+    "/blog/linkedin-creator-marketplace-europe",
+    "/blog/how-to-pay-b2b-creators",
+    "/blog/linkedin-creator-marketplace-explained",
+    "/blog/what-is-a-b2b-creator-marketplace",
+    "/blog/creator-led-growth-b2b",
+    "/blog/linkedin-ads-vs-creator-led-cpl",
+    "/blog/nano-vs-macro-creators-b2b-ctr",
+    "/blog/b2b-influence-linkedin",
+    "/blog/founder-led-distribution-b2b-saas",
+    "/blog/naano-vs-alternatives",
+    "https://fr.trustpilot.com/review/www.naano.xyz",
+    "/privacy"
+  ],
+  "bodySnippet": "For companies\nFor creators\nFor agencies\nHow it works\nResources\nEN\nSign in\nSign up\nWhere B2B brands work with creators\nThe B2B LinkedIn\nCreator Marketplace.\n\nFind the creators your buyers already trust, launch campaigns in days, and track the clicks, leads and pipeline generated by every post.\n\nLaunch a campaign\nSee how Naano works\nTrusted by modern B2B teams\nCASE STUDY\nCASE STUDY\n“We manage €10M+ of influence budget every year. For B2B, Naano simply makes our life easier”\nDavid Zmirov\nCEO, Zmirov Communication\nInfluence agency\nThe Naano creator marketplace\nWork with all the best creators.\n\nFind the right B2B voices, compare their audience fit, and book every collaboration from one place.\n\nnaano.co/marketplace\n3,000+ vetted creators\nSpecialist B2B voices, ready to collaborate.\nAcross 100 countries\nLocal expertise with genuinely global reach.\nAI & SaaS creator\n96%\nFounders\nSales leaders\nGTM teams\nMatched to your buyers\nAudience fit comes before follower count.\nONE PLATFORM, FROM BRIEF TO RESULTS\nRun creator campaigns from one place.\n\nFind the right voices, launch faster, and connect every post to measurable business results.\n\n01\nEric\nFit\n92%\nRobin\nFit\n88%\nAya\nFit\n84%\nFind creators your buyers trust\n02\nCampaign brief\nAI\nObjectives and key messages\nCreator guidelines\nTracking links ready\nBuild a campaign brief in minutes\n03\nRaphael\nDraft ready\nThomas\nScheduled\nNada\nLive\nManage every collaboration\n04\nAttributed pipeline\n€48.2K\n+24%\n124K views\n418 leads\nTrack reach, clicks, and leads\n05\nPayment scheduled\nHandled by Naano\nCreator payout\n€1,240\nContract\nInvoice\nPayout\nPay creators without the admin\nReal teams. Measurable pipeline.\n\nSee how B2B teams turn creator trust into attributable demand with Naano.\n\nVIDEO TESTIMONIAL\n2:40\n\n“Naano became one of our fastest acquisition channels. We know exactly what every creator brings.”\n\nVincent Josse\nCEO & Founder, BlogSEO\nCASE STUDY\nBlogSEO\nHow BlogSEO turned creator content into product signups\n\nBlogSEO briefed SEO & SaaS creators on LinkedIn and X, then traced every trial back to the post that drove it, all in Naano.\n\n9\ncreators activated\n2,940\nqualified clicks\n512\ntrials started\nRead case study\nTRUSTED BY TEAMS AT\n+30\nTHE RESULTS\nProven across thousands of campaigns.\n5M+\nImpressions generated\n30K+\nLeads generated\n2,000+\nCreators on Naano\n5K+\nPosts published\nThomas Higadère\nCreator · B2B & AI · 34K followers\n\nHow AI changed our prospecting workflow for wealth managers and private bankers.\n\n42.8K\nImpressions\n312\nClicks\n18"
+}
