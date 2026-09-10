@@ -1,59 +1,40 @@
-# Your Review — S02
+# Your Review — Final (S03–S09 batch)
 
-You do NOT need to inspect every changed line.
+You asked to review at the end. Product is on **https://github.com/VishwajeetSinghParihar750/naano** (`main` @ `d8c3559`).
 
-Focus on:
+## How to try it locally
 
-### 1. Schema shape
-File: `backend/prisma/schema.prisma`
-Question: Are the 6 models + enums right for the MVP? (Deliverable is one-to-one with Collaboration; `walletBalanceCents` lives on BrandProfile.)
+1. `docker compose up -d`
+2. `cd backend && npm i && npm run migrate && npm run db:seed && npm run dev`
+3. `cd frontend && npm i && npm run dev`
+4. http://localhost:5173 — marketing; `/login` → **Demo as creator** / **Demo as brand**
 
-### 2. Seed realism
-File: `backend/prisma/seed.ts` (creators list, collaborations)
-Question: Happy with 15 creators / 2 brands / 4 campaigns / 6 status-spanning collaborations, and the demo niches/rates?
+## Happy path to click through
 
-### 3. Demo credentials
-File: `README.md` (demo table)
-Question: OK that all seeded accounts share `naano-demo-pass` (bcrypt), documented in README, for the S05 login + S08 demo?
+1. Demo as brand → Marketplace → Invite a creator to a campaign  
+2. Sign out → Demo as creator → Opportunities → Accept  
+3. Collaborations → submit a draft URL  
+4. Demo as brand → Collaborations → Approve → Mark paid  
+5. Bottom AI bar: try “how do I set my rate” / “pricing”
 
-## What changed (2-4 bullets)
+## Focus questions
 
-- Replaced throwaway `HealthCheck` with the real domain schema (User, CreatorProfile, BrandProfile, Campaign, Collaboration, Deliverable) + 4 enums
-- New migration `20260910090953_domain_models`
-- Idempotent seed: 15 creators, 2 brands, 4 campaigns, 6 collaborations (one per status), 3 deliverables
-- `bcryptjs` added; README seed step + demo credentials
+### 1. Product / UX
+Does the near-clone marketing + both apps feel good enough for the assignment walkthrough, or what should change first?
 
-## Why
+### 2. Live deploy (S04)
+Deploy config is ready (`DEPLOY.md`). Ready to run Vercel + Railway with you, or defer?
 
-Gives both apps and the full collaboration lifecycle real data on day one, so S05-S08 build against a populated DB and the demo needs no manual setup.
+### 3. AI guide
+Keyword fallback works without an API key. Want `OPENAI_API_KEY` wired for the demo?
 
-## Behavior change
+## Known gaps (intentional or deferred)
 
-No user-facing change yet (no routes/UI). Database now migrates + seeds.
-
-## Automated checks
-
-- Diff minimizer: PASS
-- Code reviewer: PASS
-- Bug hunter: PASS
-- Tests: PASS (clean-DB migration independently proven)
-- Production readiness: skipped
-
-## What automated review did NOT check
-
-- Runtime login with the seeded hash (S05 not built)
-- Any API/query behavior against the seed (S06/S07)
-
-## Remaining risk
-
-Low. Carry-forward: enum values must match exactly when S05/S06/S07 read/write status; demo password is intentionally weak (assignment demo only).
+- **No live public URL yet** — needs your Vercel/Railway auth  
+- OAuth / Stripe / LinkedIn import / Agency / MCP / Pixel — stubs only  
+- AI matching is not real (marketplace list only)  
+- Guide “invite a creator” may score creator-opportunities over brand-marketplace (keyword overlap)
 
 ## Decision needed
 
-Reply **APPROVE** or **REQUEST_CHANGES**. Commit is a separate gate — I won't commit until you say so.
-
----
-
-## Human decision
-
-**APPROVE** (2026-09-10) — S02 review accepted. Commit + push approved this turn. Remaining steps (S03–S10) to be planned together and reviewed in batch at the end.
+Reply **APPROVE** (ship as-is / proceed to deploy) or **REQUEST_CHANGES** with what to fix.
