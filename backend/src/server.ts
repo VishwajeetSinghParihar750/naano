@@ -1,10 +1,14 @@
 import "dotenv/config";
 import Fastify from "fastify";
 import cors from "@fastify/cors";
+import cookie from "@fastify/cookie";
 import healthRoutes from "./routes/health.js";
+import authRoutes from "./routes/auth.js";
+import meRoutes from "./routes/me.js";
 
 const port = Number(process.env.PORT ?? 8080);
 const corsOrigin = process.env.CORS_ORIGIN ?? "http://localhost:5173";
+const sessionSecret = process.env.SESSION_SECRET ?? "dev-session-secret-change-me";
 
 async function main() {
   const app = Fastify({ logger: true });
@@ -14,7 +18,13 @@ async function main() {
     credentials: true,
   });
 
+  await app.register(cookie, {
+    secret: sessionSecret,
+  });
+
   await app.register(healthRoutes, { prefix: "/api/v1" });
+  await app.register(authRoutes, { prefix: "/api/v1" });
+  await app.register(meRoutes, { prefix: "/api/v1" });
 
   await app.listen({ port, host: "0.0.0.0" });
 }
