@@ -3,7 +3,11 @@ import { MarketingLayout } from "./components/marketing/MarketingLayout";
 import { RequireAnon, RequireRole } from "./components/RequireRole";
 import { AuthProvider } from "./lib/auth";
 import { HealthPage } from "./pages/HealthPage";
-import { BrandShell } from "./pages/app/BrandShell";
+import { BrandCampaigns } from "./pages/brand/BrandCampaigns";
+import { BrandCollaborations } from "./pages/brand/BrandCollaborations";
+import { BrandMarketplace } from "./pages/brand/BrandMarketplace";
+import { BrandOverview } from "./pages/brand/BrandOverview";
+import { BrandShell } from "./pages/brand/BrandShell";
 import { CreatorCard } from "./pages/creator/CreatorCard";
 import { CreatorCollaborations } from "./pages/creator/CreatorCollaborations";
 import { CreatorHome } from "./pages/creator/CreatorHome";
@@ -61,7 +65,12 @@ export default function App() {
                 <BrandShell />
               </RequireRole>
             }
-          />
+          >
+            <Route index element={<BrandOverview />} />
+            <Route path="marketplace" element={<BrandMarketplace />} />
+            <Route path="campaigns" element={<BrandCampaigns />} />
+            <Route path="collaborations" element={<BrandCollaborations />} />
+          </Route>
           <Route path="/health" element={<HealthPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
