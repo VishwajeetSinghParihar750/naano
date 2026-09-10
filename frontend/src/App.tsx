@@ -1,4 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { GuideBar } from "./components/guide/GuideBar";
+import { GuidePointer } from "./components/guide/GuidePointer";
 import { MarketingLayout } from "./components/marketing/MarketingLayout";
 import { RequireAnon, RequireRole } from "./components/RequireRole";
 import { AuthProvider } from "./lib/auth";
@@ -25,6 +27,8 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <GuideBar />
+        <GuidePointer />
         <Routes>
           <Route element={<MarketingLayout />}>
             <Route path="/" element={<HomePage />} />

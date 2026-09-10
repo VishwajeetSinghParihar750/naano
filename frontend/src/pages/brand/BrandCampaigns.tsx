@@ -103,7 +103,10 @@ export function BrandCampaigns() {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      <h1
+        data-tour-id="brand-campaigns"
+        className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl"
+      >
         Campaigns
       </h1>
       <p className="mt-2 text-sm text-muted">

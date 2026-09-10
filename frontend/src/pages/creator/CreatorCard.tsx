@@ -110,7 +110,10 @@ export function CreatorCard() {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      <h1
+        data-tour-id="creator-card"
+        className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl"
+      >
         Creator card
       </h1>
       <p className="mt-2 max-w-xl text-sm text-muted">

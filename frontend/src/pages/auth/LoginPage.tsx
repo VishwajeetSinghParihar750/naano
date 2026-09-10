@@ -152,7 +152,7 @@ export function LoginPage() {
         </button>
       </form>
 
-      <div className="mt-8">
+      <div className="mt-8" data-tour-id="auth-demo">
         <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted">
           Try the demo
         </p>

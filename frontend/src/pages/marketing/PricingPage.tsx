@@ -31,7 +31,10 @@ export function PricingPage() {
       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
         Pricing
       </p>
-      <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-5xl">
+      <h1
+        data-tour-id="marketing-pricing"
+        className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-5xl"
+      >
         Naano pricing
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">

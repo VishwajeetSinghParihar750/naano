@@ -77,7 +77,10 @@ export function BrandCollaborations() {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      <h1
+        data-tour-id="brand-collaborations"
+        className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl"
+      >
         Collaborations
       </h1>
       <p className="mt-2 text-sm text-muted">
