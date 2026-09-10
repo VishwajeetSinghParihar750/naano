@@ -7,8 +7,108 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// Throwaway model — proves migrations run. Replaced by domain models in S02.
-model HealthCheck {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
+enum Role {
+  creator
+  brand
+}
+
+enum CampaignStatus {
+  draft
+  active
+  completed
+}
+
+enum CollaborationStatus {
+  invited
+  accepted
+  declined
+  draft_submitted
+  live
+  paid
+}
+
+enum DeliverableStatus {
+  pending
+  submitted
+  approved
+}
+
+model User {
+  id             String          @id @default(uuid())
+  email          String          @unique
+  role           Role
+  passwordHash   String
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  creatorProfile CreatorProfile?
+  brandProfile   BrandProfile?
+}
+
+model CreatorProfile {
+  id               String          @id @default(uuid())
+  userId           String          @unique
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name             String
+  headline         String
+  niche            String
+  country          String
+  followers        Int
+  ratePerPostCents Int
+  cardPublished    Boolean         @default(false)
+  avatarUrl        String?
+  bio              String?
+  collaborations   Collaboration[]
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+}
+
+model BrandProfile {
+  id                 String     @id @default(uuid())
+  userId             String     @unique
+  user               User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company            String
+  website            String?
+  walletBalanceCents Int        @default(0)
+  campaigns          Campaign[]
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+}
+
+model Campaign {
+  id             String          @id @default(uuid())
+  brandProfileId String
+  brand          BrandProfile    @relation(fields: [brandProfileId], references: [id], onDelete: Cascade)
+  title          String
+  brief          String
+  budgetCents    Int
+  status         CampaignStatus  @default(draft)
+  collaborations Collaboration[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model Collaboration {
+  id               String              @id @default(uuid())
+  campaignId       String
+  campaign         Campaign            @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  creatorProfileId String
+  creator          CreatorProfile      @relation(fields: [creatorProfileId], references: [id], onDelete: Cascade)
+  status           CollaborationStatus @default(invited)
+  agreedRateCents  Int
+  deliverable      Deliverable?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+
+  @@unique([campaignId, creatorProfileId])
+}
+
+model Deliverable {
+  id              String            @id @default(uuid())
+  collaborationId String            @unique
+  collaboration   Collaboration     @relation(fields: [collaborationId], references: [id], onDelete: Cascade)
+  draftUrl        String?
+  status          DeliverableStatus @default(pending)
+  submittedAt     DateTime?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
 }

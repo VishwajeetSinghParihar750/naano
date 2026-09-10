@@ -2,38 +2,32 @@
 
 ## Summary
 
-Implemented **S01 Bootstrap**: Docker Postgres, Fastify health API, Vite/React/Tailwind frontend with shared `lib/api.ts`, Prisma init migration, README and `.gitignore`.
-
-Verified locally: `GET /api/v1/health` → `{ok:true}`; Puppeteer confirms **API: ok** and (with API stopped) **API: down**.
+Implemented **S02 Data model + seed** per [specs/02-data-model.md](../../../specs/02-data-model.md): replaced `HealthCheck` with the 6-model domain schema + 4 enums, migrated it, added `bcryptjs`, and wrote an idempotent seed producing status-spanning demo data.
 
 ## Files changed
 
-- `docker-compose.yml`
-- `.gitignore`
-- `README.md`
-- `backend/` (package, Fastify server + dotenv, health route, Prisma schema + migration, `.env.example`)
-- `frontend/` (Vite React TS Tailwind, HealthPage, `lib/api.ts`, `.env.example`)
-- Workflow: `decisions.md`, `plan.md`, `state.md`, `implementation.md`, `review.md`, `human-review.md`
+- `backend/prisma/schema.prisma` — enums (Role, CampaignStatus, CollaborationStatus, DeliverableStatus) + User, CreatorProfile, BrandProfile, Campaign, Collaboration, Deliverable
+- `backend/prisma/migrations/20260910090953_domain_models/` — new migration (drops HealthCheck)
+- `backend/prisma/seed.ts` — 15 creators, 2 brands, 4 campaigns, 6 collaborations, 3 deliverables
+- `backend/package.json` — `bcryptjs` + `@types/bcryptjs`, `prisma.seed`, `db:seed`
+- `README.md` — seed step + demo credentials
+- `specs/02-data-model.md` — step spec
 
 ## Checks run
 
-- `docker compose up -d` — Postgres healthy on host port **5435**
-- `npx prisma migrate dev --name init` — applied
-- `curl http://localhost:8080/api/v1/health` → `{"ok":true}`
-- Puppeteer → **API: ok**
-- Stopped API → Puppeteer → **API: down**
-- `dotenv/config` loads `.env` (`SESSION_SECRET_SET true` without printing the value)
-- `.gitignore` does not ignore `.agent-logs/`
+- `prisma migrate dev --name domain_models` — applied on the existing DB (HealthCheck dropped)
+- `npm run db:seed` — counts: creators 15, brands 2, campaigns 4, collaborations 6, deliverables 3
+- Re-ran seed — counts stable (idempotent)
+- `groupBy status` — all six CollaborationStatus values present exactly once
+- Typed client: `creatorProfile.count()` → 15 (prisma generate types compile)
 
 ## Deviations from plan
 
-1. **Postgres host port `5435`** — local conflicts on 5432/5433; documented.
-2. **Tailwind v4 via `@tailwindcss/vite`** — no separate postcss/tailwind config files.
-3. **No `.git` yet** — commit + `.agent-logs/` deferred to SHIP.
-4. **Added `dotenv`** after VERIFY found `tsx` does not auto-load `.env`.
+None. Defaults as agreed (Prisma enums, spanning seed, bcryptjs, one-to-one Deliverable).
 
 ## Notes for reviewers
 
-- Root `package.json` remains recon Puppeteer tooling; product apps are `frontend/` and `backend/`.
-- Cookie/CORS plumbing is wired early though auth is S05.
-- Throwaway `HealthCheck` model is intentional; replaced in S02.
+- Demo accounts share `naano-demo-pass` (bcrypt, cost 10); used by S05 login and S08 demo.
+- `walletBalanceCents` seeded on brands for the S08 billing stub.
+- Deliverables only exist for `draft_submitted` (submitted) and `live`/`paid` (approved) — 3 total.
+- `package.json#prisma.seed` triggers a deprecation warning (Prisma 7 wants `prisma.config.ts`); harmless for now.

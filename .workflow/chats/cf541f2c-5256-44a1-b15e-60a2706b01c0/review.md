@@ -1,36 +1,36 @@
-# Review (S01 Bootstrap)
+# Review (S02 Data model + seed)
 
-Aggregated from independent VERIFY agents. PROD_CHECK skipped (scaffold-only).
+Aggregated from independent VERIFY agents. PROD_CHECK skipped (no auth/prod surface yet).
 
 ## Verdict
 
-**PASS** after follow-up fixes (dotenv load, empty dir removed, README migrate docs, **API: down** verified).
+**PASS** — no blocking findings. All exit criteria demonstrated (one agent independently proved clean-DB migration on a throwaway database).
 
 ## Agent results
 
 | Agent | Result | Notes |
 |---|---|---|
-| diff-minimizer | PASS | Scope thin; cut empty `backend/lib/` |
-| code-reviewer | PASS | Cookie/CORS plumbing correct; warned about missing `.env` load |
-| bug-hunter | PASS | Same dotenv warning; localhost vs 127.0.0.1 CORS nits |
-| test-reviewer | FAIL → addressed | Missing **API: down** evidence — now verified via Puppeteer |
+| diff-minimizer | PASS | Confined to S02 touch list; schema/seed 1:1 with spec |
+| code-reviewer | PASS | Enums match §9; correct constraints, cascades, cents |
+| bug-hunter | PASS | FK order correct; bcrypt awaited; 1:1 deliverable; S05 fields present |
+| test-reviewer | PASS | Proved clean-DB migrate on temp DB; counts + statuses confirmed |
 
 ## Findings disposition
 
 | Severity | Finding | Disposition |
 |---|---|---|
-| BLOCKING | **API: down** not evidenced | Fixed — stopped API; Puppeteer shows `API: down` |
-| WARNING | Backend never loaded `.env` | Fixed — `import "dotenv/config"` + `dotenv` dependency |
-| WARNING | Empty `backend/lib/` | Fixed — removed |
-| WARNING | README used interactive `migrate dev` only | Fixed — documents `migrate:dev` / `migrate` |
-| WARNING | Commit + `.agent-logs/` deferred | Deferred to SHIP (no `.git` yet) |
-| NIT | `api.ts` has post/patch/delete early | Accepted — plumbing once |
-| NIT | Host Postgres port 5435 | Accepted — local port conflicts |
-| NIT | Tailwind v4 without postcss config | Accepted |
+| WARNING | `clear()` wipes all rows (not upsert) | Accept — intended for a deterministic assignment seed; idempotent by wipe-then-recreate |
+| NIT | Seed not wrapped in a transaction | Accept — `clear()` first makes re-runs self-heal |
+| NIT | `eur()` rounds fractional euros | Accept — all inputs are whole euros |
+| NIT | `CampaignStatus.completed` / `DeliverableStatus.pending` never seeded | Accept — statuses exist for later steps |
+| NIT | `package.json#prisma.seed` Prisma 7 deprecation | Accept — harmless warning |
 
-## Checks re-run after fixes
+## Independent verification (test-reviewer)
 
-- `dotenv` loads: `SESSION_SECRET_SET true`, `CORS_ORIGIN` from `.env`
-- Health still `{ok:true}` with API up
-- With API stopped: page shows **API: down**
-- API restarted for continued local use
+- `prisma validate`, `migrate status`, `generate`, `tsc --noEmit` all clean
+- Live counts: 15 / 2 / 4 / 6 / 3; all six collaboration statuses one each
+- Full 2-migration chain applied on a fresh empty DB (temp DB created + dropped; real DB untouched); final schema = 6 domain tables, no HealthCheck
+
+## Idempotency
+
+Confirmed by implementer running `db:seed` twice with stable counts (15/2/4/6/3).

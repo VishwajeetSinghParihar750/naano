@@ -34,10 +34,23 @@ cd backend
 cp .env.example .env
 npm install
 npm run migrate:dev
-# or, after the init migration is already in the repo:
+# or, after migrations are already in the repo:
 # npm run migrate
+npm run db:seed
 npm run dev
 ```
+
+`npm run db:seed` loads demo data: 15 creators, 2 brands, 4 campaigns, and 6
+collaborations spanning every status. It is idempotent (safe to re-run).
+
+**Demo credentials** (all seeded accounts share one password):
+
+| Role | Email | Password |
+|---|---|---|
+| Creator | `amelie.dubois@creator.naano.test` | `naano-demo-pass` |
+| Brand | `growth@runanywhere.naano.test` | `naano-demo-pass` |
+
+Login is wired in S05; the hashes are seeded now so those accounts work once auth ships.
 
 API listens on **http://localhost:8080**. Health check:
 

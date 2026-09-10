@@ -1,62 +1,59 @@
-# Your Review
+# Your Review — S02
 
 You do NOT need to inspect every changed line.
 
 Focus on:
 
-### 1. Env loading
-File: `backend/src/server.ts` (top: `import "dotenv/config"`)
-Question: OK that the API now loads `backend/.env` via dotenv (needed before S02 Prisma / S05 sessions)?
+### 1. Schema shape
+File: `backend/prisma/schema.prisma`
+Question: Are the 6 models + enums right for the MVP? (Deliverable is one-to-one with Collaboration; `walletBalanceCents` lives on BrandProfile.)
 
-### 2. Local Postgres port
-File: `docker-compose.yml` (`5435:5432`) + `backend/.env.example`
-Question: Accept host port **5435** (5432/5433 already taken on this machine), or force a different port?
+### 2. Seed realism
+File: `backend/prisma/seed.ts` (creators list, collaborations)
+Question: Happy with 15 creators / 2 brands / 4 campaigns / 6 status-spanning collaborations, and the demo niches/rates?
 
-### 3. Shared API client ahead of need
-File: `frontend/src/lib/api.ts`
-Question: Keep `get/post/patch/delete` + `ApiError` now as shared plumbing, or trim to GET-only until later steps?
+### 3. Demo credentials
+File: `README.md` (demo table)
+Question: OK that all seeded accounts share `naano-demo-pass` (bcrypt), documented in README, for the S05 login + S08 demo?
 
-## What changed (2–4 bullets)
+## What changed (2-4 bullets)
 
-- Scaffolded `backend/` (Fastify + Prisma + health) and `frontend/` (Vite React Tailwind + HealthPage)
-- Docker Compose Postgres, README, `.gitignore` (keeps `.agent-logs/`)
-- VERIFY fixes: dotenv, remove empty `backend/lib/`, README migrate docs, proved **API: down**
+- Replaced throwaway `HealthCheck` with the real domain schema (User, CreatorProfile, BrandProfile, Campaign, Collaboration, Deliverable) + 4 enums
+- New migration `20260910090953_domain_models`
+- Idempotent seed: 15 creators, 2 brands, 4 campaigns, 6 collaborations (one per status), 3 deliverables
+- `bcryptjs` added; README seed step + demo credentials
 
 ## Why
 
-S01 establishes the three-tier skeleton and cookie/CORS plumbing once so later steps don't re-litigate it.
+Gives both apps and the full collaboration lifecycle real data on day one, so S05-S08 build against a populated DB and the demo needs no manual setup.
 
 ## Behavior change
 
-Locally: Postgres up → API `/api/v1/health` → browser shows **API: ok**; if API is down, **API: down**. No product features yet.
+No user-facing change yet (no routes/UI). Database now migrates + seeds.
 
 ## Automated checks
 
 - Diff minimizer: PASS
-- Code reviewer: PASS (after dotenv)
-- Bug hunter: PASS (after dotenv)
-- Tests: PASS after **API: down** re-run
+- Code reviewer: PASS
+- Bug hunter: PASS
+- Tests: PASS (clean-DB migration independently proven)
 - Production readiness: skipped
 
 ## What automated review did NOT check
 
-- Cross-machine clone from zero (fresh Docker + migrate deploy path)
-- Cookie round-trip (no session yet)
-- Production CORS / SameSite for Vercel↔Railway
-- Git history / commit interleaving (repo has no `.git` yet)
+- Runtime login with the seeded hash (S05 not built)
+- Any API/query behavior against the seed (S06/S07)
 
 ## Remaining risk
 
-Low for S01. Highest carry-forward: need `git init` + remote before first interleaved commit; dotenv must stay wired when S05 adds real sessions.
+Low. Carry-forward: enum values must match exactly when S05/S06/S07 read/write status; demo password is intentionally weak (assignment demo only).
 
 ## Decision needed
 
-Reply with **APPROVE** or **REQUEST_CHANGES** (include what to change).
-
-After APPROVE, ship/commit is a **separate** gate — I will not commit until you explicitly say so.
+Reply **APPROVE** or **REQUEST_CHANGES**. Commit is a separate gate — I won't commit until you say so.
 
 ---
 
 ## Human decision
 
-**APPROVE** (2026-09-10) — S01 review accepted. Ship/commit not yet approved.
+**APPROVE** (2026-09-10) — S02 review accepted. Commit + push approved this turn. Remaining steps (S03–S10) to be planned together and reviewed in batch at the end.
