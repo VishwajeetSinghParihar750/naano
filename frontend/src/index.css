@@ -1,1 +1,78 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0f1b2d;
+  --color-muted: #5a6b7d;
+  --color-sky: #e8f4fb;
+  --color-sky-deep: #b8d9ef;
+  --color-surface: #ffffff;
+  --color-navy: #0b1f3a;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --color-ink: #0f1b2d;
+  --color-muted: #5a6b7d;
+  --color-sky: #e8f4fb;
+  --color-sky-deep: #b8d9ef;
+  --color-surface: #ffffff;
+  --color-navy: #0b1f3a;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-sky);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-atmosphere {
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, #ffffff 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 20%, rgba(184, 217, 239, 0.55) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 0% 40%, rgba(232, 244, 251, 0.9) 0%, transparent 45%),
+    linear-gradient(180deg, #f5fafd 0%, var(--color-sky) 35%, #ffffff 100%);
+}
+
+.btn-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: var(--color-navy);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-navy:hover {
+  background-color: #16345c;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-navy) 18%, transparent);
+  background-color: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  color: var(--color-navy);
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-surface);
+  border-color: color-mix(in srgb, var(--color-navy) 35%, transparent);
+}
