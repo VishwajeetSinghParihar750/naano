@@ -167,13 +167,15 @@ export function BrandSettings() {
               <label className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">
                 Website
               </label>
-              <div className="relative mt-1.5">
-                <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted">
-                  <Icon icon={Globe} size="sm" />
-                </span>
+              <div className="mt-1.5 flex h-10 w-full items-center gap-2.5 rounded-[var(--radius)] border border-[color:var(--input)] bg-surface px-3.5">
+                <Icon
+                  icon={Globe}
+                  size="sm"
+                  className="shrink-0 text-muted"
+                />
                 <input
                   type="url"
-                  className="field pl-10"
+                  className="min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-ink outline-none placeholder:text-muted"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="https://yourcompany.com"

@@ -234,9 +234,15 @@ async function clear() {
   await prisma.deliverable.deleteMany();
   await prisma.collaboration.deleteMany();
   await prisma.campaign.deleteMany();
+  await prisma.walletTransaction.deleteMany();
   await prisma.creatorProfile.deleteMany();
   await prisma.brandProfile.deleteMany();
   await prisma.user.deleteMany();
+}
+
+/** Days ago as a Date (for staggered earnings charts). */
+function daysAgo(n: number): Date {
+  return new Date(Date.now() - n * 24 * 60 * 60 * 1000);
 }
 
 async function main() {
@@ -250,6 +256,7 @@ async function main() {
     const user = await prisma.user.create({
       data: { email: c.email, role: "creator", passwordHash },
     });
+    const isAmelie = c.email === "amelie.dubois@creator.naano.test";
     const profile = await prisma.creatorProfile.create({
       data: {
         userId: user.id,
@@ -258,10 +265,11 @@ async function main() {
         niche: c.niche,
         country: c.country,
         followers: c.followers,
-        videoCount: Math.max(12, Math.round(c.followers / 800)),
-        viewCount: c.followers * 48,
-        posts7d: 1,
-        posts90d: Math.max(3, Math.round(c.followers / 4000)),
+        videoCount: isAmelie ? 48 : Math.max(12, Math.round(c.followers / 800)),
+        viewCount: isAmelie ? 920_000 : c.followers * 48,
+        posts7d: isAmelie ? 2 : 1,
+        posts90d: isAmelie ? 14 : Math.max(3, Math.round(c.followers / 4000)),
+        estImpressions: isAmelie ? 8200 : Math.round(c.followers * 0.35),
         ratePerPostCents: usd(c.rateUsd),
         cardPublished: c.cardPublished ?? true,
         bio: c.bio,
@@ -271,6 +279,21 @@ async function main() {
         registrationCountry: c.country,
         taxSelfDeclared: true,
         invoiceAuthorized: true,
+        ...(isAmelie
+          ? {
+              youtubeUrl: "https://www.youtube.com/@ameliedubois-devops",
+              linkedinUrl: "https://www.linkedin.com/in/amelie-dubois-devops",
+              xUrl: "https://x.com/amelie_devops",
+              isRegisteredBusiness: true,
+              legalName: "Amélie Dubois Consulting",
+              legalAddress: "12 Rue de Lyon, 69003 Lyon, France",
+              bankDetails: {
+                accountHolder: "Amélie Dubois Consulting",
+                iban: "FR76 ACCT-000039 7890 186",
+                bankName: "BNP Paribas",
+              },
+            }
+          : {}),
       },
     });
     creatorProfiles.push(profile);
@@ -320,31 +343,77 @@ async function main() {
   }
 
   const [runAnywhere, northwind] = brandProfiles;
+  const amelie = creatorProfiles.find((cp) => cp.niche === "DevOps");
+  if (!amelie) throw new Error("Amélie (DevOps) seed profile missing");
 
-  // Campaigns (4)
-  const campRunA = await prisma.campaign.create({
+  // RunAnywhere campaigns — enough for Amélie to hold one status per campaign
+  // (unique on campaignId+creatorProfileId) and for brand tabs to look full.
+  const campRunPlatform = await prisma.campaign.create({
     data: {
       brandProfileId: runAnywhere.id,
       title: "Developer platform launch",
-      brief: "Announce our new self-serve developer platform to senior engineers. Focus on reliability and DX. One authentic LinkedIn post per creator.",
+      brief:
+        "Announce our new self-serve developer platform to senior engineers. Focus on reliability and DX. One authentic LinkedIn post per creator.",
       budgetCents: usd(2400),
       status: "active",
     },
   });
-  const campRunB = await prisma.campaign.create({
+  const campRunCost = await prisma.campaign.create({
     data: {
       brandProfileId: runAnywhere.id,
       title: "Cost optimisation thought leadership",
-      brief: "Educate cloud architects on cutting spend without downtime. Data-backed takes welcome.",
+      brief:
+        "Educate cloud architects on cutting spend without downtime. Data-backed takes welcome.",
       budgetCents: usd(1600),
+      status: "active",
+    },
+  });
+  const campRunReliability = await prisma.campaign.create({
+    data: {
+      brandProfileId: runAnywhere.id,
+      title: "Platform reliability series",
+      brief:
+        "A three-post series on SLOs, incident response, and boring reliability for B2B buyers.",
+      budgetCents: usd(2000),
+      status: "active",
+    },
+  });
+  const campRunIncidents = await prisma.campaign.create({
+    data: {
+      brandProfileId: runAnywhere.id,
+      title: "Incident postmortems for buyers",
+      brief:
+        "Share candid postmortem lessons that help engineering leaders trust RunAnywhere.",
+      budgetCents: usd(1800),
+      status: "active",
+    },
+  });
+  const campRunArchive = await prisma.campaign.create({
+    data: {
+      brandProfileId: runAnywhere.id,
+      title: "Self-serve DX launch (archive)",
+      brief: "Completed wrap-up campaign from the self-serve DX launch quarter.",
+      budgetCents: usd(1800),
+      status: "completed",
+    },
+  });
+  const campRunHiring = await prisma.campaign.create({
+    data: {
+      brandProfileId: runAnywhere.id,
+      title: "Q4 DevRel hiring brand",
+      brief: "Draft brief for hiring-brand content aimed at developer advocates.",
+      budgetCents: usd(1200),
       status: "draft",
     },
   });
+
+  // Northwind campaigns (kept for global status coverage / second brand)
   const campNwA = await prisma.campaign.create({
     data: {
       brandProfileId: northwind.id,
       title: "PLG playbook series",
-      brief: "Share product-led growth tactics with SaaS operators. Real numbers over theory.",
+      brief:
+        "Share product-led growth tactics with SaaS operators. Real numbers over theory.",
       budgetCents: usd(2000),
       status: "active",
     },
@@ -353,25 +422,26 @@ async function main() {
     data: {
       brandProfileId: northwind.id,
       title: "Security for fast-moving teams",
-      brief: "Reassure engineering leaders that shipping fast and staying secure can coexist.",
+      brief:
+        "Reassure engineering leaders that shipping fast and staying secure can coexist.",
       budgetCents: usd(1200),
       status: "draft",
     },
   });
 
-  // Helper to find a creator profile by niche
   const byNiche = (niche: string) => {
     const p = creatorProfiles.find((cp) => cp.niche === niche);
     if (!p) throw new Error(`No seeded creator for niche ${niche}`);
     return p;
   };
 
-  // Collaborations (6) — one per status.
   type CollabSeed = {
     campaignId: string;
     creatorNiche: string;
     status: CollaborationStatus;
     rateUsd: number;
+    /** Backdate collaboration.updatedAt (earnings chart). */
+    updatedDaysAgo?: number;
     deliverable?: {
       status: "pending" | "submitted" | "approved";
       draftUrl?: string;
@@ -380,24 +450,136 @@ async function main() {
   };
 
   const collabs: CollabSeed[] = [
+    // —— Amélie full funnel (one status per campaign) ——
     {
-      campaignId: campRunA.id,
+      campaignId: campRunPlatform.id,
       creatorNiche: "DevOps",
       status: "invited",
       rateUsd: 240,
     },
     {
-      campaignId: campRunA.id,
+      campaignId: campRunCost.id,
+      creatorNiche: "DevOps",
+      status: "accepted",
+      rateUsd: 240,
+    },
+    {
+      campaignId: campRunReliability.id,
+      creatorNiche: "DevOps",
+      status: "draft_submitted",
+      rateUsd: 260,
+      deliverable: {
+        status: "submitted",
+        draftUrl: "https://www.linkedin.com/posts/amelie-dubois-reliability-draft",
+        submitted: true,
+      },
+    },
+    {
+      campaignId: campRunIncidents.id,
+      creatorNiche: "DevOps",
+      status: "live",
+      rateUsd: 240,
+      updatedDaysAgo: 5,
+      deliverable: {
+        status: "approved",
+        draftUrl: "https://www.linkedin.com/posts/amelie-dubois-postmortem-live",
+        submitted: true,
+      },
+    },
+    {
+      campaignId: campRunArchive.id,
+      creatorNiche: "DevOps",
+      status: "paid",
+      rateUsd: 240,
+      updatedDaysAgo: 45,
+      deliverable: {
+        status: "approved",
+        draftUrl: "https://www.linkedin.com/posts/amelie-dubois-dx-archive",
+        submitted: true,
+      },
+    },
+    {
+      campaignId: campRunHiring.id,
+      creatorNiche: "DevOps",
+      status: "declined",
+      rateUsd: 240,
+    },
+    // Second invite so Opportunities isn't a single row
+    {
+      campaignId: campNwA.id,
+      creatorNiche: "DevOps",
+      status: "invited",
+      rateUsd: 240,
+    },
+
+    // —— Other RunAnywhere creators (fill brand collaboration tabs) ——
+    {
+      campaignId: campRunPlatform.id,
       creatorNiche: "Cloud",
       status: "accepted",
       rateUsd: 290,
     },
     {
-      campaignId: campRunA.id,
+      campaignId: campRunPlatform.id,
       creatorNiche: "Cybersecurity",
       status: "declined",
       rateUsd: 220,
     },
+    {
+      campaignId: campRunPlatform.id,
+      creatorNiche: "AI/ML",
+      status: "paid",
+      rateUsd: 480,
+      updatedDaysAgo: 20,
+      deliverable: {
+        status: "approved",
+        draftUrl: "https://www.linkedin.com/posts/marcus-hale-platform-live",
+        submitted: true,
+      },
+    },
+    {
+      campaignId: campRunPlatform.id,
+      creatorNiche: "Design",
+      status: "invited",
+      rateUsd: 130,
+    },
+    {
+      campaignId: campRunCost.id,
+      creatorNiche: "DevRel",
+      status: "draft_submitted",
+      rateUsd: 210,
+      deliverable: {
+        status: "submitted",
+        draftUrl: "https://www.linkedin.com/posts/peter-novak-cost-draft",
+        submitted: true,
+      },
+    },
+    {
+      campaignId: campRunCost.id,
+      creatorNiche: "Sales",
+      status: "live",
+      rateUsd: 260,
+      updatedDaysAgo: 8,
+      deliverable: {
+        status: "approved",
+        draftUrl: "https://www.linkedin.com/posts/tom-becker-cost-live",
+        submitted: true,
+      },
+    },
+    {
+      campaignId: campRunReliability.id,
+      creatorNiche: "B2B copy",
+      status: "invited",
+      rateUsd: 110,
+    },
+    {
+      campaignId: campRunIncidents.id,
+      creatorNiche: "Data/Analytics",
+      status: "accepted",
+      rateUsd: 200,
+    },
+
+    // —— Northwind (non-Amélie) ——
     {
       campaignId: campNwA.id,
       creatorNiche: "SaaS growth",
@@ -421,17 +603,20 @@ async function main() {
       },
     },
     {
-      campaignId: campRunA.id,
-      creatorNiche: "AI/ML",
-      status: "paid",
-      rateUsd: 480,
-      deliverable: {
-        status: "approved",
-        draftUrl: "https://www.linkedin.com/posts/marcus-hale-platform-live",
-        submitted: true,
-      },
+      campaignId: campNwB.id,
+      creatorNiche: "Cybersecurity",
+      status: "invited",
+      rateUsd: 220,
     },
   ];
+
+  let escrowTotalCents = 0;
+  const escrowRows: {
+    brandProfileId: string;
+    amountCents: number;
+    label: string;
+    collaborationId: string;
+  }[] = [];
 
   for (const c of collabs) {
     const creator = byNiche(c.creatorNiche);
@@ -441,6 +626,9 @@ async function main() {
         creatorProfileId: creator.id,
         status: c.status,
         agreedRateCents: usd(c.rateUsd),
+        ...(c.updatedDaysAgo != null
+          ? { createdAt: daysAgo(c.updatedDaysAgo + 3), updatedAt: daysAgo(c.updatedDaysAgo) }
+          : {}),
       },
     });
     if (c.deliverable) {
@@ -449,11 +637,63 @@ async function main() {
           collaborationId: collab.id,
           status: c.deliverable.status,
           draftUrl: c.deliverable.draftUrl,
-          submittedAt: c.deliverable.submitted ? new Date() : null,
+          submittedAt: c.deliverable.submitted ? daysAgo(c.updatedDaysAgo ?? 2) : null,
         },
       });
     }
+
+    // Escrow open bookings (everything except declined) on RunAnywhere only.
+    const campaignBrand =
+      [
+        campRunPlatform,
+        campRunCost,
+        campRunReliability,
+        campRunIncidents,
+        campRunArchive,
+        campRunHiring,
+      ].some((camp) => camp.id === c.campaignId)
+        ? runAnywhere
+        : null;
+    if (campaignBrand && c.status !== "declined") {
+      const amountCents = usd(c.rateUsd);
+      escrowTotalCents += amountCents;
+      escrowRows.push({
+        brandProfileId: campaignBrand.id,
+        amountCents: -amountCents,
+        label: `Escrow · ${creator.name} · collab`,
+        collaborationId: collab.id,
+      });
+    }
   }
+
+  // Wallet: opening topup already created; add mid-cycle topup + escrows, then reconcile balance.
+  const midTopup = usd(1500);
+  await prisma.walletTransaction.create({
+    data: {
+      brandProfileId: runAnywhere.id,
+      type: "topup",
+      amountCents: midTopup,
+      label: "Card top-up",
+      createdAt: daysAgo(30),
+    },
+  });
+  for (const row of escrowRows) {
+    await prisma.walletTransaction.create({
+      data: {
+        brandProfileId: row.brandProfileId,
+        type: "booking_escrow",
+        amountCents: row.amountCents,
+        label: row.label,
+        collaborationId: row.collaborationId,
+      },
+    });
+  }
+  // Opening was $5000; +$1500 topup; −escrows. Declined never escrowed.
+  const opening = usd(5000);
+  await prisma.brandProfile.update({
+    where: { id: runAnywhere.id },
+    data: { walletBalanceCents: opening + midTopup - escrowTotalCents },
+  });
 
   const counts = {
     creators: await prisma.creatorProfile.count(),
@@ -461,6 +701,7 @@ async function main() {
     campaigns: await prisma.campaign.count(),
     collaborations: await prisma.collaboration.count(),
     deliverables: await prisma.deliverable.count(),
+    walletTxns: await prisma.walletTransaction.count(),
   };
   console.log("Seed complete:", counts);
   console.log(`Demo login (creator): ${creators[0].email} / ${DEMO_PASSWORD}`);

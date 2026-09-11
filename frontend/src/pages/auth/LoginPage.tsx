@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthShell } from "../../components/auth/AuthShell";
-import { OAuthButtons } from "../../components/auth/OAuthButtons";
 import { ApiError } from "../../lib/api";
 import { useAuth } from "../../lib/auth";
 
@@ -76,19 +75,11 @@ export function LoginPage() {
         place.
       </p>
 
-      <div className="mt-8">
-        <OAuthButtons />
-      </div>
-
-      <div className="my-6 flex items-center gap-3">
-        <span className="h-px flex-1 bg-sky-deep/60" />
-        <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
-          or continue with email
-        </span>
-        <span className="h-px flex-1 bg-sky-deep/60" />
-      </div>
-
-      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="mt-8 flex flex-col gap-4"
+      >
         <div>
           <label htmlFor="email" className={labelClass}>
             Email
