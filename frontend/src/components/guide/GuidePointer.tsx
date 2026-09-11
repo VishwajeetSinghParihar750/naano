@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { MousePointer2 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   GUIDE_TOUR_EVENT,
   type GuideTourResult,
 } from "../../lib/tours";
+import { Icon } from "../ui/Icon";
 
 type PointerState = {
   tourId: string;
@@ -156,25 +158,16 @@ export function GuidePointer() {
           transform: "translate(-4px, -4px)",
         }}
       >
-        <svg
-          width="36"
-          height="36"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="drop-shadow-md"
-          aria-hidden
-        >
-          <path
-            d="M5.5 3.5 L5.5 17.5 L9.2 13.9 L12.1 20.5 L14.4 19.5 L11.4 12.7 L16.5 12.7 Z"
-            fill="#0b1f3a"
-            stroke="#e8f4fb"
-            strokeWidth="1"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <div className="pointer-events-auto mt-1 max-w-[16rem] rounded-lg border border-sky-deep/80 bg-navy px-3 py-2 text-sm leading-snug text-white shadow-lg">
+        <Icon
+          icon={MousePointer2}
+          size={28}
+          strokeWidth={1.5}
+          className="text-accent drop-shadow-[0_2px_6px_rgba(22,82,240,0.45)]"
+          fill="var(--accent)"
+        />
+        <div className="pointer-events-auto mt-1 max-w-[16rem] rounded-[var(--radius)] border border-border bg-surface px-3 py-2 text-sm leading-snug text-ink shadow-[var(--shadow-md)]">
           {active.caption}
-          <p className="mt-1 text-[11px] text-sky/90">
+          <p className="mt-1 text-[11px] text-muted">
             Click outside or press Esc to dismiss
           </p>
         </div>

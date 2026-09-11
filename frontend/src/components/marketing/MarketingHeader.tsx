@@ -11,13 +11,17 @@ export function MarketingHeader() {
   const isCreators = pathname.startsWith("/creators");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-sky-deep/40 bg-surface/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="neon-topbar sticky top-0 z-40">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
         <Link
           to="/"
-          className="text-xl font-extrabold tracking-tight text-ink no-underline"
+          className="flex items-center gap-2.5 no-underline"
+          aria-label="naano home"
         >
-          naano
+          <span className="brand-mark">n</span>
+          <span className="font-[family-name:var(--font-display)] text-[15px] font-semibold tracking-tight text-ink sm:text-base">
+            naano
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
@@ -40,14 +44,11 @@ export function MarketingHeader() {
             Sign in
           </Link>
           {isCreators ? (
-            <Link
-              to="/register?role=influencer"
-              className="btn-navy px-3 py-2 text-sm sm:px-4"
-            >
+            <Link to="/register?role=influencer" className="btn-navy btn-sm">
               Start earning
             </Link>
           ) : (
-            <Link to="/register" className="btn-navy px-3 py-2 text-sm sm:px-4">
+            <Link to="/register" className="btn-navy btn-sm">
               Sign up
             </Link>
           )}

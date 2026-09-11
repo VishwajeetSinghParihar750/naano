@@ -27,11 +27,11 @@ export function CreatorsPage() {
           2,000+ creators paid · 4.8/5 rating
         </p>
         <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl">
-          Get paid to post on LinkedIn
+          Get paid to post for B2B brands
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
           Choose deals from B2B brands you know, post in your own voice, and get
-          paid within 24h. No negotiating, no admin. Creators earn €500 on
+          paid within 24h. No negotiating, no admin. Creators earn $500 on
           average per deal.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -63,7 +63,7 @@ export function CreatorsPage() {
             {BENEFITS.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-sky-deep/60 bg-surface/80 px-5 py-6"
+                className="card-surface px-5 py-6"
               >
                 <h3 className="text-base font-bold text-ink">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -83,14 +83,14 @@ export function CreatorsPage() {
           You set a fixed fee per post. Brands book at your published rate—no
           back-and-forth negotiation.
         </p>
-        <div className="mt-8 max-w-md rounded-2xl border border-sky-deep/60 bg-surface/90 p-6 shadow-sm">
+        <div className="card-surface mt-8 max-w-md p-6 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-bold text-ink">Robin Tempe</p>
               <p className="mt-1 text-sm text-muted">B2B SaaS · Product</p>
             </div>
             <span className="rounded-md bg-sky px-2 py-1 text-xs font-semibold text-navy">
-              LinkedIn
+              YouTube
             </span>
           </div>
           <div className="mt-6 flex items-end justify-between border-t border-sky-deep/50 pt-5">
@@ -98,7 +98,7 @@ export function CreatorsPage() {
               <p className="text-xs font-semibold uppercase tracking-wide text-muted">
                 Starting rate
               </p>
-              <p className="mt-1 text-3xl font-extrabold text-ink">€800</p>
+              <p className="mt-1 text-3xl font-extrabold text-ink">$800</p>
             </div>
             <p className="pb-1 text-sm font-medium text-muted">/ post</p>
           </div>
@@ -111,7 +111,7 @@ export function CreatorsPage() {
             You&apos;ve seen how it works. Now get paid for it.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
-            Join thousands of B2B creators earning on LinkedIn with Naano.
+            Join thousands of B2B creators earning with Naano.
           </p>
           <Link
             to="/register?role=influencer"

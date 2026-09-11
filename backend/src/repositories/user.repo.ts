@@ -1,5 +1,6 @@
 import { prisma } from "../lib/prisma.js";
 import type { Role } from "@prisma/client";
+import { slugifyCardSlug } from "../lib/creator-constants.js";
 
 export const userRepo = {
   findByEmail(email: string) {
@@ -39,6 +40,9 @@ export const userRepo = {
             followers: 0,
             ratePerPostCents: 0,
             cardPublished: false,
+            cardSlug: slugifyCardSlug(displayName, user.id),
+            onboardingComplete: false,
+            industries: [],
           },
         });
       } else {

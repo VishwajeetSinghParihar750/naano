@@ -10,18 +10,18 @@ const STATUS_LABEL: Record<CollaborationStatus, string> = {
 };
 
 const STATUS_CLASS: Record<CollaborationStatus, string> = {
-  invited: "bg-sky/80 text-navy ring-sky-deep/60",
-  accepted: "bg-emerald-50 text-emerald-800 ring-emerald-200",
-  declined: "bg-red-50 text-red-700 ring-red-200",
-  draft_submitted: "bg-amber-50 text-amber-900 ring-amber-200",
-  live: "bg-sky text-navy ring-sky-deep",
-  paid: "bg-navy/10 text-navy ring-navy/20",
+  invited: "bg-accent-soft text-accent ring-accent/25",
+  accepted: "bg-success-soft text-success ring-success/30",
+  declined: "bg-destructive-soft text-destructive ring-destructive/25",
+  draft_submitted: "bg-warning-soft text-warning ring-warning/30",
+  live: "bg-success-soft text-success ring-success/35",
+  paid: "bg-secondary text-foreground ring-border",
 };
 
 export function StatusBadge({ status }: { status: CollaborationStatus }) {
   return (
     <span
-      className={`inline-flex rounded-md px-2 py-0.5 text-xs font-semibold ring-1 ring-inset ${STATUS_CLASS[status]}`}
+      className={`inline-flex rounded-full px-2.5 py-0.5 text-[11px] font-semibold tracking-wide ring-1 ring-inset ${STATUS_CLASS[status]}`}
     >
       {STATUS_LABEL[status]}
     </span>
@@ -31,7 +31,7 @@ export function StatusBadge({ status }: { status: CollaborationStatus }) {
 export function CampaignStatusBadge({ status }: { status: string }) {
   const label = status.replace(/_/g, " ");
   return (
-    <span className="inline-flex rounded-md bg-sky/80 px-2 py-0.5 text-xs font-semibold capitalize text-navy ring-1 ring-inset ring-sky-deep/60">
+    <span className="inline-flex rounded-full bg-accent-soft px-2.5 py-0.5 text-[11px] font-semibold tracking-wide text-accent ring-1 ring-inset ring-accent/25">
       {label}
     </span>
   );

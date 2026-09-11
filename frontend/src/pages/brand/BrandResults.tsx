@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ApiError, api } from "../../lib/api";
 import { formatEuroFromCents } from "./money";
-import { PageError, PageLoading } from "./ui";
+import { PageError, PageHeader, PageLoading } from "./ui";
 import type { BrandProfileResponse } from "./types";
 
 type LoadState =
@@ -57,16 +57,14 @@ export function BrandResults() {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-        Results
-      </h1>
-      <p className="mt-2 text-sm text-muted">
-        Campaign performance at a glance.
-      </p>
+      <PageHeader
+        title="Results"
+        subtitle="Campaign performance at a glance."
+      />
 
       <p
         role="note"
-        className="mt-4 rounded-lg border border-sky-deep/60 bg-sky/40 px-3 py-2 text-sm text-navy"
+        className="rounded-[var(--radius)] border border-sky-deep/60 bg-sky/40 px-3 py-2 text-sm text-accent"
       >
         Demo stub — metrics below are placeholder values for the walkthrough,
         not live analytics.
@@ -96,11 +94,11 @@ export function BrandResults() {
 
 function MetricCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-sky-deep/50 bg-surface/80 px-4 py-5">
+    <div className="card-surface p-4">
       <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">
         {label}
       </p>
-      <p className="mt-2 text-xl font-extrabold tracking-tight text-ink">
+      <p className="mt-2 text-xl font-semibold tracking-tight text-ink">
         {value}
       </p>
     </div>

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const ROWS = [
   {
     label: "Price",
-    selfServe: "€0 / month",
-    managed: "€700 / month",
+    selfServe: "$0 / month",
+    managed: "$700 / month",
   },
   {
     label: "What's included",
@@ -38,13 +38,13 @@ export function PricingPage() {
         Naano pricing
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-        Naano offers two ways to run LinkedIn creator campaigns. Self-Serve
-        costs €0 per month with full platform access. Managed Campaigns costs
-        €700 per month and adds a Naano team that sources creators, writes
+        Naano offers two ways to run creator campaigns. Self-Serve
+        costs $0 per month with full platform access. Managed Campaigns costs
+        $700 per month and adds a Naano team that sources creators, writes
         briefs and runs your campaigns end to end.
       </p>
 
-      <div className="mt-10 overflow-x-auto rounded-2xl border border-sky-deep/60 bg-surface/90">
+      <div className="card-surface mt-10 overflow-x-auto">
         <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
           <thead>
             <tr className="border-b border-sky-deep/50 bg-sky/60">
@@ -73,12 +73,12 @@ export function PricingPage() {
             <tr>
               <th className="px-4 py-5 sm:px-6" />
               <td className="px-4 py-5 sm:px-6">
-                <Link to="/register?role=saas" className="btn-navy text-sm">
+                <Link to="/register?role=saas" className="btn-navy btn-sm">
                   Start for free
                 </Link>
               </td>
               <td className="px-4 py-5 sm:px-6">
-                <Link to="/register?role=saas" className="btn-ghost text-sm">
+                <Link to="/register?role=saas" className="btn-ghost btn-sm">
                   Get started
                 </Link>
               </td>

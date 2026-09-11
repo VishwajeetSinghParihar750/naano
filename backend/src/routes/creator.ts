@@ -1,6 +1,8 @@
 import type { FastifyPluginAsync } from "fastify";
 import { z } from "zod";
 import { requireUser, requireRole } from "../lib/auth.js";
+import { SESSION_COOKIE, clearedCookieOptions } from "../lib/session.js";
+import { httpUrl, optionalHttpUrl } from "../lib/http-url.js";
 import { creatorService, DomainError } from "../services/creator.service.js";
 
 const updateMeSchema = z
@@ -12,20 +14,61 @@ const updateMeSchema = z
     bio: z.string().nullable().optional(),
     cardPublished: z.boolean().optional(),
     name: z.string().trim().min(1).optional(),
+    industries: z.array(z.string()).max(3).optional(),
+    linkedinUrl: optionalHttpUrl.optional(),
+    youtubeUrl: optionalHttpUrl.optional(),
+    xUrl: optionalHttpUrl.optional(),
+    registrationCountry: z.string().nullable().optional(),
+    isRegisteredBusiness: z.boolean().nullable().optional(),
+    legalName: z.string().nullable().optional(),
+    legalAddress: z.string().nullable().optional(),
+    taxSelfDeclared: z.boolean().optional(),
+    invoiceAuthorized: z.boolean().optional(),
+    bankDetails: z
+      .object({
+        accountHolder: z.string().optional(),
+        iban: z.string().optional(),
+        bankName: z.string().optional(),
+      })
+      .nullable()
+      .optional(),
+    followers: z.number().int().nonnegative().optional(),
   })
   .strict();
 
 const deliverableSchema = z.object({
-  draftUrl: z.string().url(),
+  draftUrl: httpUrl,
 });
 
-function sendDomainError(reply: Parameters<typeof requireRole>[2], err: unknown) {
+const linkedinAnalyzeSchema = z
+  .object({
+    linkedinUrl: z.string().trim().min(1),
+  })
+  .strict();
+
+const youtubeAnalyzeSchema = z
+  .object({
+    youtubeUrl: z.string().trim().min(1),
+  })
+  .strict();
+
+function sendDomainError(
+  reply: {
+    code: (n: number) => { send: (b: unknown) => unknown };
+  },
+  err: unknown,
+) {
   if (err instanceof DomainError) {
     return reply
       .code(err.status)
       .send({ error: { code: err.code, message: err.message } });
   }
   throw err;
+}
+
+function normalizeOptionalUrl(value: string | null | undefined) {
+  if (value === "") return null;
+  return value;
 }
 
 const creatorRoutes: FastifyPluginAsync = async (app) => {
@@ -55,8 +98,99 @@ const creatorRoutes: FastifyPluginAsync = async (app) => {
       });
     }
     try {
-      const profile = await creatorService.updateMe(user.id, parsed.data);
+      const body = parsed.data;
+      const profile = await creatorService.updateMe(user.id, {
+        ...body,
+        linkedinUrl: normalizeOptionalUrl(body.linkedinUrl),
+        youtubeUrl: normalizeOptionalUrl(body.youtubeUrl),
+        xUrl: normalizeOptionalUrl(body.xUrl),
+      });
       return reply.send({ profile });
+    } catch (err) {
+      return sendDomainError(reply, err);
+    }
+  });
+
+  app.post("/creator/onboarding/youtube", async (req, reply) => {
+    const user = await requireUser(req, reply);
+    if (!user) return;
+    if (!requireRole(user, "creator", reply)) return;
+    const parsed = youtubeAnalyzeSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return reply.code(400).send({
+        error: {
+          code: "invalid_input",
+          message: parsed.error.issues[0]?.message ?? "Invalid input",
+        },
+      });
+    }
+    try {
+      const result = await creatorService.analyzeYouTube(
+        user.id,
+        parsed.data.youtubeUrl,
+      );
+      return reply.send(result);
+    } catch (err) {
+      return sendDomainError(reply, err);
+    }
+  });
+
+  app.post("/creator/onboarding/linkedin", async (req, reply) => {
+    const user = await requireUser(req, reply);
+    if (!user) return;
+    if (!requireRole(user, "creator", reply)) return;
+    const parsed = linkedinAnalyzeSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return reply.code(400).send({
+        error: {
+          code: "invalid_input",
+          message: parsed.error.issues[0]?.message ?? "Invalid input",
+        },
+      });
+    }
+    try {
+      const result = await creatorService.analyzeLinkedIn(
+        user.id,
+        parsed.data.linkedinUrl,
+      );
+      return reply.send(result);
+    } catch (err) {
+      return sendDomainError(reply, err);
+    }
+  });
+
+  app.post("/creator/onboarding/complete", async (req, reply) => {
+    const user = await requireUser(req, reply);
+    if (!user) return;
+    if (!requireRole(user, "creator", reply)) return;
+    try {
+      const profile = await creatorService.completeOnboarding(user.id);
+      return reply.send({ profile });
+    } catch (err) {
+      return sendDomainError(reply, err);
+    }
+  });
+
+  app.get("/creator/earnings", async (req, reply) => {
+    const user = await requireUser(req, reply);
+    if (!user) return;
+    if (!requireRole(user, "creator", reply)) return;
+    try {
+      const earnings = await creatorService.getEarnings(user.id);
+      return reply.send({ earnings });
+    } catch (err) {
+      return sendDomainError(reply, err);
+    }
+  });
+
+  app.delete("/creator/me", async (req, reply) => {
+    const user = await requireUser(req, reply);
+    if (!user) return;
+    if (!requireRole(user, "creator", reply)) return;
+    try {
+      await creatorService.deleteAccount(user.id);
+      reply.clearCookie(SESSION_COOKIE, clearedCookieOptions());
+      return reply.code(204).send();
     } catch (err) {
       return sendDomainError(reply, err);
     }
@@ -67,8 +201,9 @@ const creatorRoutes: FastifyPluginAsync = async (app) => {
     if (!user) return;
     if (!requireRole(user, "creator", reply)) return;
     try {
-      const opportunities = await creatorService.listOpportunities(user.id);
-      return reply.send({ opportunities });
+      const result = await creatorService.listOpportunities(user.id);
+      // Keep backwards-compatible shape plus gate metadata.
+      return reply.send(result);
     } catch (err) {
       return sendDomainError(reply, err);
     }

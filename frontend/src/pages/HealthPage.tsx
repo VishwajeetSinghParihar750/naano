@@ -27,15 +27,15 @@ export function HealthPage() {
     status === "pending" ? "API: …" : status === "ok" ? "API: ok" : "API: down";
   const color =
     status === "ok"
-      ? "text-green-600"
+      ? "text-success"
       : status === "down"
-        ? "text-red-600"
-        : "text-gray-500";
+        ? "text-destructive"
+        : "text-muted";
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
-      <div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white p-8 shadow-sm text-center">
-        <h1 className="text-xl font-semibold text-gray-900">Naano (rebuild)</h1>
+    <main className="bg-atmosphere flex min-h-screen items-center justify-center p-6">
+      <div className="card-surface w-full max-w-sm p-8 text-center">
+        <h1 className="text-heading text-xl font-semibold text-ink">naano</h1>
         <p className={`mt-4 text-lg font-medium ${color}`}>{label}</p>
       </div>
     </main>

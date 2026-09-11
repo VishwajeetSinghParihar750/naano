@@ -8,8 +8,7 @@ type AuthShellProps = {
 };
 
 /**
- * Split-screen auth scaffold: form on the left, brand story on the right.
- * Reuses the marketing sky/navy tokens and atmosphere background.
+ * Split-screen auth scaffold — Naano paper + brand-soft story panel.
  */
 export function AuthShell({ children, storyHeading, storyBody }: AuthShellProps) {
   return (
@@ -18,7 +17,7 @@ export function AuthShell({ children, storyHeading, storyBody }: AuthShellProps)
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
           <Link
             to="/"
-            className="text-xl font-extrabold tracking-tight text-ink no-underline"
+            className="font-[family-name:var(--font-display)] text-xl font-bold tracking-tight text-ink no-underline"
           >
             naano
           </Link>
@@ -28,23 +27,23 @@ export function AuthShell({ children, storyHeading, storyBody }: AuthShellProps)
         </div>
       </div>
 
-      <div className="relative hidden overflow-hidden bg-navy lg:block">
+      <div className="relative hidden overflow-hidden border-l border-border bg-beige lg:block">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 60% at 80% 0%, rgba(184,217,239,0.28) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 0% 100%, rgba(232,244,251,0.16) 0%, transparent 50%)",
+              "radial-gradient(ellipse 70% 50% at 80% 10%, rgba(197,235,253,0.65), transparent 55%), radial-gradient(ellipse 50% 40% at 10% 90%, rgba(232,240,254,0.7), transparent 50%)",
           }}
         />
         <div className="relative flex h-full flex-col justify-center px-14 py-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-deep">
+          <p className="text-xs font-semibold tracking-[0.18em] text-accent uppercase">
             naano
           </p>
-          <h2 className="mt-6 max-w-md text-3xl font-extrabold leading-tight tracking-tight text-white">
+          <h2 className="text-heading mt-6 max-w-md text-3xl font-extrabold leading-tight">
             {storyHeading}
           </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-white/70">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-[color:var(--copy)]">
             {storyBody}
           </p>
         </div>

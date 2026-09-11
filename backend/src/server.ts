@@ -8,6 +8,8 @@ import meRoutes from "./routes/me.js";
 import creatorRoutes from "./routes/creator.js";
 import brandRoutes from "./routes/brand.js";
 import guideRoutes from "./routes/guide.js";
+import aiRoutes from "./routes/ai.js";
+import publicRoutes from "./routes/public.js";
 
 const port = Number(process.env.PORT ?? 8080);
 const corsOrigin = process.env.CORS_ORIGIN ?? "http://localhost:5173";
@@ -19,6 +21,7 @@ async function main() {
   await app.register(cors, {
     origin: corsOrigin,
     credentials: true,
+    methods: ["GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   });
 
   await app.register(cookie, {
@@ -31,6 +34,8 @@ async function main() {
   await app.register(creatorRoutes, { prefix: "/api/v1" });
   await app.register(brandRoutes, { prefix: "/api/v1" });
   await app.register(guideRoutes, { prefix: "/api/v1" });
+  await app.register(aiRoutes, { prefix: "/api/v1" });
+  await app.register(publicRoutes, { prefix: "/api/v1" });
 
   await app.listen({ port, host: "0.0.0.0" });
 }

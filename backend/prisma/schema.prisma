@@ -45,33 +45,72 @@ model User {
 }
 
 model CreatorProfile {
-  id               String          @id @default(uuid())
-  userId           String          @unique
-  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  name             String
-  headline         String
-  niche            String
-  country          String
-  followers        Int
-  ratePerPostCents Int
-  cardPublished    Boolean         @default(false)
-  avatarUrl        String?
-  bio              String?
-  collaborations   Collaboration[]
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt
+  id                    String          @id @default(uuid())
+  userId                String          @unique
+  user                  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name                  String
+  headline              String
+  niche                 String
+  country               String
+  followers             Int
+  videoCount            Int             @default(0)
+  viewCount             Int             @default(0)
+  posts7d               Int             @default(0)
+  posts90d              Int             @default(0)
+  estImpressions        Int             @default(0)
+  ratePerPostCents      Int
+  cardPublished         Boolean         @default(false)
+  avatarUrl             String?
+  bio                   String?
+  industries            String[]        @default([])
+  linkedinUrl           String?
+  youtubeUrl            String?
+  xUrl                 String?
+  cardSlug              String          @unique
+  onboardingComplete    Boolean         @default(false)
+  registrationCountry   String?
+  isRegisteredBusiness  Boolean?
+  legalName             String?
+  legalAddress          String?
+  taxSelfDeclared       Boolean         @default(false)
+  invoiceAuthorized     Boolean         @default(false)
+  bankDetails           Json?
+  collaborations        Collaboration[]
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
 }
 
 model BrandProfile {
-  id                 String     @id @default(uuid())
-  userId             String     @unique
-  user               User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                 String              @id @default(uuid())
+  userId             String              @unique
+  user               User                @relation(fields: [userId], references: [id], onDelete: Cascade)
   company            String
   website            String?
-  walletBalanceCents Int        @default(0)
+  walletBalanceCents Int                 @default(0)
+  valueProp          String?
+  icp                Json?
+  onboardingComplete Boolean             @default(false)
   campaigns          Campaign[]
-  createdAt          DateTime   @default(now())
-  updatedAt          DateTime   @updatedAt
+  walletTransactions WalletTransaction[]
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+}
+
+enum WalletTransactionType {
+  topup
+  booking_escrow
+  refund
+}
+
+model WalletTransaction {
+  id              String                @id @default(uuid())
+  brandProfileId  String
+  brand           BrandProfile          @relation(fields: [brandProfileId], references: [id], onDelete: Cascade)
+  type            WalletTransactionType
+  amountCents     Int
+  label           String
+  collaborationId String?
+  createdAt       DateTime              @default(now())
 }
 
 model Campaign {

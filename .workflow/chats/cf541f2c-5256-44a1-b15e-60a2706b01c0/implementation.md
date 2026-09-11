@@ -1,33 +1,17 @@
-# Implementation
+# Implementation — Business rebuild S18–S23
 
 ## Summary
 
-Implemented S07 brand frontend mirroring the creator app: `pages/brand/*` shell with Overview, Marketplace, Campaigns, and Collaborations; nested `/brand/*` routes under `RequireRole brand`; typed API clients matching the brand endpoints; invite modal; approve / mark-paid actions.
-
-## Files changed
-
-- `frontend/src/App.tsx` — nested brand routes
-- `frontend/src/pages/brand/BrandShell.tsx` (new)
-- `frontend/src/pages/brand/BrandOverview.tsx` (new)
-- `frontend/src/pages/brand/BrandMarketplace.tsx` (new)
-- `frontend/src/pages/brand/BrandCampaigns.tsx` (new)
-- `frontend/src/pages/brand/BrandCollaborations.tsx` (new)
-- `frontend/src/pages/brand/types.ts` (new)
-- `frontend/src/pages/brand/money.ts` (new)
-- `frontend/src/pages/brand/ui.tsx` (new)
-- `frontend/src/pages/brand/statusBadge.tsx` (new)
-- Removed `frontend/src/pages/app/BrandShell.tsx` (placeholder)
+Brand/business workspace rebuilt to match b2bAd screenshots: icon-rail shell, company onboarding, dashboard, marketplace Book with wallet escrow, campaigns launch stubs, collaborations table, billing top-ups.
 
 ## Checks run
 
-- `npm run build` in `frontend` — **passed** (`tsc -b && vite build`)
-
-## Deviations from plan
-
-None.
+- `tsc --noEmit` frontend + backend: clean
+- VERIFY: fixed escrow refund only when ledger escrow exists; conditional balance decrement; wallet pill refreshes on route change; CreateCampaignBody includes status; default campaign status draft
 
 ## Notes for reviewers
 
-- Backend was not touched; frontend assumes the parallel brand API shapes from the task brief.
-- Open collab count on Overview excludes `declined` and `paid`.
-- Invite modal requires at least one campaign; otherwise prompts to create one first.
+1. `docker compose up -d && cd backend && npx prisma migrate deploy && npx tsx prisma/seed.ts`
+2. Demo brand: `growth@runanywhere.naano.test` / `naano-demo-pass`
+3. Seed invites predate escrow (no debit); declining them does **not** inflate the wallet
+4. New Book flow debits wallet; decline refunds only if escrow txn exists

@@ -7,7 +7,38 @@ const prisma = new PrismaClient();
 // Shared demo password for every seeded account (documented in README).
 const DEMO_PASSWORD = "naano-demo-pass";
 
-const eur = (euros: number) => Math.round(euros * 100);
+/** Integer USD cents (field names keep *Cents). */
+const usd = (dollars: number) => Math.round(dollars * 100);
+
+function cardSlugFor(name: string, id: string): string {
+  const base = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 40);
+  return `${base || "creator"}-${id.replace(/-/g, "").slice(0, 8)}`;
+}
+
+function industryFromNiche(niche: string): string[] {
+  const map: Record<string, string[]> = {
+    DevOps: ["Developer Tools", "SaaS"],
+    "AI/ML": ["AI", "SaaS"],
+    "SaaS growth": ["SaaS", "Growth/GTM"],
+    Fintech: ["Fintech", "B2B"],
+    Cybersecurity: ["Cybersecurity", "B2B"],
+    Product: ["SaaS", "Growth/GTM"],
+    Design: ["Design", "SaaS"],
+    Sales: ["Sales", "B2B"],
+    "Data/Analytics": ["Data/Analytics", "SaaS"],
+    "HR-tech": ["HR", "SaaS"],
+    DevRel: ["Developer Tools", "Marketing"],
+    Cloud: ["Developer Tools", "SaaS"],
+    "Marketing Ops": ["Marketing", "SaaS"],
+    "Founder-led": ["B2B", "Growth/GTM"],
+    "B2B copy": ["Marketing", "B2B"],
+  };
+  return map[niche] ?? ["B2B"];
+}
 
 type CreatorSeed = {
   email: string;
@@ -16,9 +47,10 @@ type CreatorSeed = {
   niche: string;
   country: string;
   followers: number;
-  rateEuros: number;
+    rateUsd: number;
   cardPublished?: boolean;
   bio?: string;
+  industries?: string[];
 };
 
 const creators: CreatorSeed[] = [
@@ -29,7 +61,7 @@ const creators: CreatorSeed[] = [
     niche: "DevOps",
     country: "France",
     followers: 18400,
-    rateEuros: 240,
+    rateUsd: 240,
     bio: "Ex-SRE. I write about developer platforms, CI/CD and reliability.",
   },
   {
@@ -39,7 +71,7 @@ const creators: CreatorSeed[] = [
     niche: "AI/ML",
     country: "United Kingdom",
     followers: 42300,
-    rateEuros: 480,
+    rateUsd: 480,
     bio: "Applied ML engineer. Threads on shipping models that matter.",
   },
   {
@@ -49,7 +81,7 @@ const creators: CreatorSeed[] = [
     niche: "SaaS growth",
     country: "Italy",
     followers: 9600,
-    rateEuros: 160,
+    rateUsd: 160,
     bio: "Growth at two Series B SaaS. I share PLG playbooks.",
   },
   {
@@ -59,7 +91,7 @@ const creators: CreatorSeed[] = [
     niche: "Fintech",
     country: "Nigeria",
     followers: 27500,
-    rateEuros: 320,
+    rateUsd: 320,
     bio: "Payments infra. Demystifying money movement for founders.",
   },
   {
@@ -69,7 +101,7 @@ const creators: CreatorSeed[] = [
     niche: "Cybersecurity",
     country: "Sweden",
     followers: 15100,
-    rateEuros: 220,
+    rateUsd: 220,
     bio: "AppSec. Threat modelling, secure defaults, and less fear.",
   },
   {
@@ -79,7 +111,7 @@ const creators: CreatorSeed[] = [
     niche: "Product",
     country: "India",
     followers: 33800,
-    rateEuros: 300,
+    rateUsd: 300,
     bio: "PM leader. Discovery, prioritisation, and saying no.",
   },
   {
@@ -89,7 +121,7 @@ const creators: CreatorSeed[] = [
     niche: "Design",
     country: "Portugal",
     followers: 7200,
-    rateEuros: 130,
+    rateUsd: 130,
     bio: "Designer. Systems, accessibility, and honest critique.",
   },
   {
@@ -99,7 +131,7 @@ const creators: CreatorSeed[] = [
     niche: "Sales",
     country: "Germany",
     followers: 21900,
-    rateEuros: 260,
+    rateUsd: 260,
     bio: "Sales leader. Pipeline, discovery calls, and human outreach.",
   },
   {
@@ -109,7 +141,7 @@ const creators: CreatorSeed[] = [
     niche: "Data/Analytics",
     country: "Japan",
     followers: 12600,
-    rateEuros: 200,
+    rateUsd: 200,
     bio: "Analytics engineer. dbt, warehouses, and trustworthy metrics.",
   },
   {
@@ -119,7 +151,7 @@ const creators: CreatorSeed[] = [
     niche: "HR-tech",
     country: "United Arab Emirates",
     followers: 5400,
-    rateEuros: 90,
+    rateUsd: 90,
     bio: "People ops. Hiring, culture, and tools that respect humans.",
   },
   {
@@ -129,7 +161,7 @@ const creators: CreatorSeed[] = [
     niche: "DevRel",
     country: "Czech Republic",
     followers: 16700,
-    rateEuros: 210,
+    rateUsd: 210,
     bio: "Developer advocate. DX, docs, and healthy communities.",
   },
   {
@@ -139,7 +171,7 @@ const creators: CreatorSeed[] = [
     niche: "Cloud",
     country: "South Korea",
     followers: 24100,
-    rateEuros: 290,
+    rateUsd: 290,
     bio: "Cloud architect. Well-architected, without the bill shock.",
   },
   {
@@ -149,7 +181,7 @@ const creators: CreatorSeed[] = [
     niche: "Marketing Ops",
     country: "United States",
     followers: 8900,
-    rateEuros: 150,
+    rateUsd: 150,
     bio: "MarOps. Attribution, lifecycle, and clean data.",
   },
   {
@@ -159,7 +191,7 @@ const creators: CreatorSeed[] = [
     niche: "Founder-led",
     country: "Morocco",
     followers: 3100,
-    rateEuros: 60,
+    rateUsd: 60,
     cardPublished: false,
     bio: "Two-time founder. Building in public, mistakes included.",
   },
@@ -170,7 +202,7 @@ const creators: CreatorSeed[] = [
     niche: "B2B copy",
     country: "Norway",
     followers: 6300,
-    rateEuros: 110,
+    rateUsd: 110,
     bio: "Copywriter. Messaging, positioning, and fewer buzzwords.",
   },
 ];
@@ -179,7 +211,7 @@ type BrandSeed = {
   email: string;
   company: string;
   website: string;
-  walletEuros: number;
+  walletUsd: number;
 };
 
 const brands: BrandSeed[] = [
@@ -187,13 +219,13 @@ const brands: BrandSeed[] = [
     email: "growth@runanywhere.naano.test",
     company: "RunAnywhere",
     website: "https://runanywhere.example.com",
-    walletEuros: 5000,
+    walletUsd: 5000,
   },
   {
     email: "marketing@northwind.naano.test",
     company: "Northwind SaaS",
     website: "https://northwind.example.com",
-    walletEuros: 3200,
+    walletUsd: 3200,
   },
 ];
 
@@ -226,9 +258,19 @@ async function main() {
         niche: c.niche,
         country: c.country,
         followers: c.followers,
-        ratePerPostCents: eur(c.rateEuros),
+        videoCount: Math.max(12, Math.round(c.followers / 800)),
+        viewCount: c.followers * 48,
+        posts7d: 1,
+        posts90d: Math.max(3, Math.round(c.followers / 4000)),
+        ratePerPostCents: usd(c.rateUsd),
         cardPublished: c.cardPublished ?? true,
         bio: c.bio,
+        industries: c.industries ?? industryFromNiche(c.niche),
+        cardSlug: cardSlugFor(c.name, user.id),
+        onboardingComplete: true,
+        registrationCountry: c.country,
+        taxSelfDeclared: true,
+        invoiceAuthorized: true,
       },
     });
     creatorProfiles.push(profile);
@@ -245,10 +287,36 @@ async function main() {
         userId: user.id,
         company: b.company,
         website: b.website,
-        walletBalanceCents: eur(b.walletEuros),
+        walletBalanceCents: usd(b.walletUsd),
+        onboardingComplete: true,
+        valueProp: `${b.company} helps B2B teams run LinkedIn creator campaigns with clear briefs and tracked results.`,
+        icp: [
+          {
+            title: "Founder / CMO",
+            description: "Needs a repeatable creator motion for product launches.",
+          },
+          {
+            title: "Demand gen manager",
+            description: "Books practitioners at public USD rates into one brief.",
+          },
+          {
+            title: "Revenue operations lead",
+            description: "Wants credible LinkedIn reach into ICP accounts.",
+          },
+        ],
       },
     });
     brandProfiles.push(profile);
+    if (b.walletUsd > 0) {
+      await prisma.walletTransaction.create({
+        data: {
+          brandProfileId: profile.id,
+          type: "topup",
+          amountCents: usd(b.walletUsd),
+          label: "Opening balance",
+        },
+      });
+    }
   }
 
   const [runAnywhere, northwind] = brandProfiles;
@@ -259,7 +327,7 @@ async function main() {
       brandProfileId: runAnywhere.id,
       title: "Developer platform launch",
       brief: "Announce our new self-serve developer platform to senior engineers. Focus on reliability and DX. One authentic LinkedIn post per creator.",
-      budgetCents: eur(2400),
+      budgetCents: usd(2400),
       status: "active",
     },
   });
@@ -268,7 +336,7 @@ async function main() {
       brandProfileId: runAnywhere.id,
       title: "Cost optimisation thought leadership",
       brief: "Educate cloud architects on cutting spend without downtime. Data-backed takes welcome.",
-      budgetCents: eur(1600),
+      budgetCents: usd(1600),
       status: "draft",
     },
   });
@@ -277,7 +345,7 @@ async function main() {
       brandProfileId: northwind.id,
       title: "PLG playbook series",
       brief: "Share product-led growth tactics with SaaS operators. Real numbers over theory.",
-      budgetCents: eur(2000),
+      budgetCents: usd(2000),
       status: "active",
     },
   });
@@ -286,7 +354,7 @@ async function main() {
       brandProfileId: northwind.id,
       title: "Security for fast-moving teams",
       brief: "Reassure engineering leaders that shipping fast and staying secure can coexist.",
-      budgetCents: eur(1200),
+      budgetCents: usd(1200),
       status: "draft",
     },
   });
@@ -303,7 +371,7 @@ async function main() {
     campaignId: string;
     creatorNiche: string;
     status: CollaborationStatus;
-    rateEuros: number;
+    rateUsd: number;
     deliverable?: {
       status: "pending" | "submitted" | "approved";
       draftUrl?: string;
@@ -316,25 +384,25 @@ async function main() {
       campaignId: campRunA.id,
       creatorNiche: "DevOps",
       status: "invited",
-      rateEuros: 240,
+      rateUsd: 240,
     },
     {
       campaignId: campRunA.id,
       creatorNiche: "Cloud",
       status: "accepted",
-      rateEuros: 290,
+      rateUsd: 290,
     },
     {
       campaignId: campRunA.id,
       creatorNiche: "Cybersecurity",
       status: "declined",
-      rateEuros: 220,
+      rateUsd: 220,
     },
     {
       campaignId: campNwA.id,
       creatorNiche: "SaaS growth",
       status: "draft_submitted",
-      rateEuros: 160,
+      rateUsd: 160,
       deliverable: {
         status: "submitted",
         draftUrl: "https://www.linkedin.com/posts/sofia-rossi-plg-draft",
@@ -345,7 +413,7 @@ async function main() {
       campaignId: campNwA.id,
       creatorNiche: "Product",
       status: "live",
-      rateEuros: 300,
+      rateUsd: 300,
       deliverable: {
         status: "approved",
         draftUrl: "https://www.linkedin.com/posts/raj-patel-plg-live",
@@ -356,7 +424,7 @@ async function main() {
       campaignId: campRunA.id,
       creatorNiche: "AI/ML",
       status: "paid",
-      rateEuros: 480,
+      rateUsd: 480,
       deliverable: {
         status: "approved",
         draftUrl: "https://www.linkedin.com/posts/marcus-hale-platform-live",
@@ -372,7 +440,7 @@ async function main() {
         campaignId: c.campaignId,
         creatorProfileId: creator.id,
         status: c.status,
-        agreedRateCents: eur(c.rateEuros),
+        agreedRateCents: usd(c.rateUsd),
       },
     });
     if (c.deliverable) {

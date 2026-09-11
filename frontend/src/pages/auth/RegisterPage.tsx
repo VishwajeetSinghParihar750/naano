@@ -1,12 +1,12 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AuthShell } from "../../components/auth/AuthShell";
 import { OAuthButtons } from "../../components/auth/OAuthButtons";
+import { Icon } from "../../components/ui/Icon";
 import { ApiError } from "../../lib/api";
 import { useAuth, type Role } from "../../lib/auth";
 
-const fieldClass =
-  "mt-1.5 w-full rounded-lg border border-sky-deep/70 bg-surface px-3.5 py-2.5 text-sm text-ink outline-none transition focus:border-navy/50 focus:ring-2 focus:ring-navy/15";
 const labelClass =
   "text-xs font-semibold uppercase tracking-[0.08em] text-muted";
 
@@ -18,7 +18,7 @@ const ROLE_CARDS: {
   {
     role: "creator",
     title: "I'm a creator",
-    body: "Get paid to create LinkedIn content for B2B brands you actually use.",
+    body: "Get paid to create content for B2B brands you actually use.",
   },
   {
     role: "brand",
@@ -28,8 +28,8 @@ const ROLE_CARDS: {
 ];
 
 function roleFromQuery(value: string | null): Role | null {
-  if (value === "influencer") return "creator";
-  if (value === "saas") return "brand";
+  if (value === "influencer" || value === "creator") return "creator";
+  if (value === "saas" || value === "brand") return "brand";
   return null;
 }
 
@@ -78,7 +78,7 @@ export function RegisterPage() {
       Already have an account?{" "}
       <Link
         to="/login"
-        className="font-semibold text-navy no-underline hover:underline"
+        className="font-semibold text-accent no-underline hover:underline"
       >
         Sign in
       </Link>
@@ -91,7 +91,7 @@ export function RegisterPage() {
         storyHeading="One platform. Two sides."
         storyBody="Creators get paid to post. B2B brands get real pipeline. Pick where you fit and we'll set the rest up in a couple of minutes."
       >
-        <h1 className="text-2xl font-extrabold tracking-tight text-ink">
+        <h1 className="text-heading text-2xl font-semibold tracking-tight text-ink">
           Create your account
         </h1>
         <p className="mt-2 text-sm text-muted">First, who are you here as?</p>
@@ -105,15 +105,17 @@ export function RegisterPage() {
                 setError(null);
                 setRole(card.role);
               }}
-              className="group rounded-2xl border border-sky-deep/70 bg-surface/70 p-5 text-left transition hover:border-navy/40 hover:bg-surface focus:outline-none focus:ring-2 focus:ring-navy/20"
+              className="group card-surface p-5 text-left transition hover:border-ink/20 focus:outline-none focus:ring-2 focus:ring-accent/20"
             >
               <span className="flex items-center justify-between">
                 <span className="text-base font-bold text-ink">
                   {card.title}
                 </span>
-                <span className="text-navy transition group-hover:translate-x-0.5">
-                  →
-                </span>
+                <Icon
+                  icon={ArrowRight}
+                  size="sm"
+                  className="text-accent transition group-hover:translate-x-0.5"
+                />
               </span>
               <span className="mt-2 block text-sm leading-relaxed text-muted">
                 {card.body}
@@ -141,12 +143,13 @@ export function RegisterPage() {
           setError(null);
           setRole(null);
         }}
-        className="mb-4 inline-flex items-center gap-1 text-sm font-medium text-muted no-underline transition hover:text-ink"
+        className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted no-underline transition hover:text-ink"
       >
-        ← Back
+        <Icon icon={ArrowLeft} size="sm" />
+        Back
       </button>
 
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink">
+      <h1 className="text-heading text-2xl font-semibold tracking-tight text-ink">
         {roleTitle}
       </h1>
       <p className="mt-2 text-sm text-muted">
@@ -185,7 +188,7 @@ export function RegisterPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder={role === "creator" ? "Amélie Dubois" : "Run Anywhere"}
-            className={fieldClass}
+            className="field mt-1.5"
           />
         </div>
 
@@ -202,7 +205,7 @@ export function RegisterPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="john@company.com"
-            className={fieldClass}
+            className="field mt-1.5"
           />
         </div>
 
@@ -220,7 +223,7 @@ export function RegisterPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
-            className={fieldClass}
+            className="field mt-1.5"
           />
           <p className="mt-1.5 text-xs text-muted">At least 8 characters.</p>
         </div>
@@ -228,7 +231,7 @@ export function RegisterPage() {
         {error ? (
           <p
             role="alert"
-            className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
+            className="field-error"
           >
             {error}
           </p>

@@ -2,13 +2,17 @@ import { Link } from "react-router-dom";
 
 export function MarketingFooter() {
   return (
-    <footer className="mt-auto border-t border-sky-deep/50 bg-surface/60">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <footer className="mt-auto border-t border-border bg-surface">
+      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <Link
           to="/"
-          className="text-lg font-extrabold tracking-tight text-ink no-underline"
+          className="flex items-center gap-2.5 no-underline"
+          aria-label="naano home"
         >
-          naano
+          <span className="brand-mark h-8 w-8 text-[11px]">n</span>
+          <span className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-tight text-ink">
+            naano
+          </span>
         </Link>
         <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
           <Link to="/" className="no-underline hover:text-ink">
@@ -25,7 +29,7 @@ export function MarketingFooter() {
           </Link>
         </nav>
         <p className="text-sm text-muted">
-          © {new Date().getFullYear()} Naano. All rights reserved.
+          © {new Date().getFullYear()} Naano
         </p>
       </div>
     </footer>

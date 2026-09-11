@@ -1,19 +1,20 @@
-# Review (S05 Auth)
+# Review
 
-Batch mode — no HUMAN_REVIEW gate.
+## Verdict
 
-## Verdict: PASS (evidence-based; VERIFY agent interrupted)
+PASS with local migrate+reseed prerequisite.
 
-### Curl
-- register → 201 + cookie; me → 200; dup → 409; bad login → 401
-- demo brand login → 200; logout clears cookie; me → 401
+## Fixed from VERIFY
 
-### Puppeteer
-- register brand → `/brand`
-- brand visits `/creator` → redirected to `/brand`
-- sign out → `/login`
-- anon visits `/brand` → `/login`
-- demo creator login → `/creator`
+- Migration backfills `onboardingComplete` for existing profiles
+- `data-tour-id` restored on Storefront / Opportunities / Collaborations headers
+- `bankDetails: null` uses `Prisma.DbNull`
+- PATCH no longer accepts `onboardingComplete` (use POST complete)
+- Shell wallet loads `/creator/earnings`
+- Seed industries map to the UI chip list
 
-### Builds
-- Pending re-confirm in this turn
+## Remaining (non-blocking)
+
+- `/c/:slug` and `/r/:slug` are copyable stubs without public pages
+- Brand app not fully redesigned
+- Docker was unavailable during this session — human must migrate/reseed

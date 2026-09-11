@@ -5,8 +5,6 @@ import { OAuthButtons } from "../../components/auth/OAuthButtons";
 import { ApiError } from "../../lib/api";
 import { useAuth } from "../../lib/auth";
 
-const fieldClass =
-  "mt-1.5 w-full rounded-lg border border-sky-deep/70 bg-surface px-3.5 py-2.5 text-sm text-ink outline-none transition focus:border-navy/50 focus:ring-2 focus:ring-navy/15";
 const labelClass =
   "text-xs font-semibold uppercase tracking-[0.08em] text-muted";
 
@@ -70,7 +68,7 @@ export function LoginPage() {
       storyHeading="Welcome back."
       storyBody="Sign in to manage your campaigns, creators and payouts, all in one place."
     >
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink">
+      <h1 className="text-heading text-2xl font-semibold tracking-tight text-ink">
         Welcome back
       </h1>
       <p className="mt-2 text-sm text-muted">
@@ -104,7 +102,7 @@ export function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="john@company.com"
-            className={fieldClass}
+            className="field mt-1.5"
           />
         </div>
 
@@ -130,14 +128,14 @@ export function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
-            className={fieldClass}
+            className="field mt-1.5"
           />
         </div>
 
         {error ? (
           <p
             role="alert"
-            className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
+            className="field-error"
           >
             {error}
           </p>
@@ -169,7 +167,7 @@ export function LoginPage() {
             type="button"
             disabled={submitting || demoBusy !== null}
             onClick={() => void handleDemoLogin("brand")}
-            className="btn-ghost flex-1 border border-sky-deep/70 disabled:cursor-not-allowed disabled:opacity-60"
+            className="btn-ghost flex-1 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {demoBusy === "brand" ? "Signing in…" : "Demo as brand"}
           </button>
@@ -180,7 +178,7 @@ export function LoginPage() {
         Don&apos;t have an account?{" "}
         <Link
           to="/register"
-          className="font-semibold text-navy no-underline hover:underline"
+          className="font-semibold text-accent no-underline hover:underline"
         >
           Sign up
         </Link>

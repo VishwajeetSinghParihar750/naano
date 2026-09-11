@@ -1,14 +1,28 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { HelpCircle, X } from "lucide-react";
 import { ApiError, api } from "../../lib/api";
 import {
   dispatchGuideTour,
   type GuideTourResult,
 } from "../../lib/tours";
+import { Icon } from "../ui/Icon";
 
 export function GuideBar() {
+  const [open, setOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onDocClick(e: MouseEvent) {
+      if (!panelRef.current?.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    if (open) document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [open]);
 
   async function handleAsk(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,6 +36,8 @@ export function GuideBar() {
         question: trimmed,
       });
       dispatchGuideTour(result);
+      setOpen(false);
+      setQuestion("");
     } catch (err) {
       setError(
         err instanceof ApiError
@@ -34,39 +50,56 @@ export function GuideBar() {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex justify-center px-3 pb-3 sm:px-4 sm:pb-4">
-      <form
-        onSubmit={(e) => void handleAsk(e)}
-        className="pointer-events-auto relative flex w-full max-w-xl items-center gap-2 rounded-xl border border-sky-deep/70 bg-surface/95 px-2.5 py-2 shadow-[0_-4px_24px_rgba(11,31,58,0.12)] backdrop-blur-sm"
-      >
-        <label htmlFor="guide-question" className="sr-only">
-          Ask the product guide
-        </label>
-        <input
-          id="guide-question"
-          type="text"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Ask where something lives…"
-          disabled={busy}
-          className="min-w-0 flex-1 rounded-lg border-0 bg-transparent px-2 py-1.5 text-sm text-ink outline-none placeholder:text-muted/80 focus:ring-0 disabled:opacity-60"
-        />
-        <button
-          type="submit"
-          disabled={busy || !question.trim()}
-          className="shrink-0 rounded-lg bg-navy px-3.5 py-1.5 text-sm font-semibold text-white transition hover:bg-[#16345c] disabled:cursor-not-allowed disabled:opacity-50"
+    <div
+      ref={panelRef}
+      className="pointer-events-none fixed bottom-4 right-4 z-[60] flex flex-col items-end gap-2 sm:bottom-5 sm:right-5"
+    >
+      {open ? (
+        <form
+          onSubmit={(e) => void handleAsk(e)}
+          className="dropdown-panel pointer-events-auto w-[min(100vw-2rem,22rem)] p-3"
         >
-          {busy ? "…" : "Ask"}
-        </button>
-        {error ? (
-          <p
-            role="alert"
-            className="absolute bottom-full left-3 right-3 mb-2 rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-xs text-red-700 sm:left-4 sm:right-auto"
-          >
-            {error}
-          </p>
-        ) : null}
-      </form>
+          <label htmlFor="guide-question" className="sr-only">
+            Ask the product guide
+          </label>
+          <input
+            id="guide-question"
+            type="text"
+            autoFocus
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Ask where something lives…"
+            disabled={busy}
+            className="field"
+          />
+          <div className="mt-2 flex items-center justify-between gap-2">
+            {error ? (
+              <p role="alert" className="text-xs text-destructive">
+                {error}
+              </p>
+            ) : (
+              <span className="font-mono-label">Naano guide</span>
+            )}
+            <button
+              type="submit"
+              disabled={busy || !question.trim()}
+              className="btn-navy btn-sm"
+            >
+              {busy ? "…" : "Ask"}
+            </button>
+          </div>
+        </form>
+      ) : null}
+
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        title={open ? "Close guide" : "Open product guide"}
+        aria-label={open ? "Close guide" : "Open guide"}
+        className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border border-accent bg-accent text-white shadow-[var(--shadow-brand)] transition hover:bg-accent-hover"
+      >
+        <Icon icon={open ? X : HelpCircle} size="lg" strokeWidth={open ? 2 : 1.75} />
+      </button>
     </div>
   );
 }

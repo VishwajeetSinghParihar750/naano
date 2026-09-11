@@ -1,6 +1,9 @@
+import { Chrome, Linkedin } from "lucide-react";
+import { Icon } from "../ui/Icon";
+
 const PROVIDERS = [
-  { key: "linkedin", label: "Continue with LinkedIn" },
-  { key: "google", label: "Continue with Google" },
+  { key: "linkedin", label: "Continue with LinkedIn", icon: Linkedin },
+  { key: "google", label: "Continue with Google", icon: Chrome },
 ] as const;
 
 /** OAuth is out of scope for S05 — buttons are visible but disabled. */
@@ -15,7 +18,10 @@ export function OAuthButtons() {
           title="Coming soon"
           className="btn-ghost w-full cursor-not-allowed justify-between opacity-60"
         >
-          <span>{provider.label}</span>
+          <span className="inline-flex items-center gap-2">
+            <Icon icon={provider.icon} size="sm" />
+            {provider.label}
+          </span>
           <span className="text-xs font-medium text-muted">coming soon</span>
         </button>
       ))}

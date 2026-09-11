@@ -1,30 +1,20 @@
-import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { Plus } from "lucide-react";
 import { ApiError, api } from "../../lib/api";
-import { euroInputToCents, formatEuroFromCents } from "./money";
+import { Icon } from "../../components/ui/Icon";
+import { formatEuroFromCents } from "./money";
 import { CampaignStatusBadge } from "./statusBadge";
-import { PageError, PageLoading } from "./ui";
-import type {
-  BrandCampaign,
-  BrandCampaignResponse,
-  BrandCampaignsResponse,
-  CreateCampaignBody,
-} from "./types";
+import { PageError, PageHeader, PageLoading } from "./ui";
+import type { BrandCampaign, BrandCampaignsResponse } from "./types";
 
-const fieldClass =
-  "mt-1.5 w-full rounded-lg border border-sky-deep/70 bg-surface px-3.5 py-2.5 text-sm text-ink outline-none transition focus:border-navy/50 focus:ring-2 focus:ring-navy/15";
-const labelClass =
-  "text-xs font-semibold uppercase tracking-[0.08em] text-muted";
+type TabId = "all" | "active" | "draft" | "completed";
 
 export function BrandCampaigns() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [campaigns, setCampaigns] = useState<BrandCampaign[]>([]);
-  const [title, setTitle] = useState("");
-  const [brief, setBrief] = useState("");
-  const [budgetEuros, setBudgetEuros] = useState("");
-  const [creating, setCreating] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
-  const [formOk, setFormOk] = useState<string | null>(null);
+  const [tab, setTab] = useState<TabId>("all");
 
   const load = useCallback(async () => {
     setError(null);
@@ -33,9 +23,7 @@ export function BrandCampaigns() {
       setCampaigns(data.campaigns);
     } catch (err) {
       setError(
-        err instanceof ApiError
-          ? err.message
-          : "Could not load campaigns.",
+        err instanceof ApiError ? err.message : "Could not load campaigns.",
       );
     } finally {
       setLoading(false);
@@ -46,183 +34,94 @@ export function BrandCampaigns() {
     void load();
   }, [load]);
 
-  async function handleCreate(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (creating) return;
-    setFormError(null);
-    setFormOk(null);
+  const filtered = useMemo(() => {
+    return campaigns.filter((c) => {
+      if (tab === "all") return true;
+      if (tab === "active") return c.status === "active";
+      if (tab === "draft") return c.status === "draft";
+      if (tab === "completed") return c.status === "completed";
+      return true;
+    });
+  }, [campaigns, tab]);
 
-    const trimmedTitle = title.trim();
-    const trimmedBrief = brief.trim();
-    const budgetCents = euroInputToCents(budgetEuros);
+  const counts = {
+    all: campaigns.length,
+    active: campaigns.filter((c) => c.status === "active").length,
+    draft: campaigns.filter((c) => c.status === "draft").length,
+    completed: campaigns.filter((c) => c.status === "completed").length,
+  };
 
-    if (!trimmedTitle || !trimmedBrief) {
-      setFormError("Title and brief are required.");
-      return;
-    }
-    if (budgetCents <= 0) {
-      setFormError("Enter a budget greater than zero.");
-      return;
-    }
-
-    setCreating(true);
-    const body: CreateCampaignBody = {
-      title: trimmedTitle,
-      brief: trimmedBrief,
-      budgetCents,
-    };
-
-    try {
-      const data = await api.post<BrandCampaignResponse>(
-        "/brand/campaigns",
-        body,
-      );
-      setCampaigns((prev) => [data.campaign, ...prev]);
-      setTitle("");
-      setBrief("");
-      setBudgetEuros("");
-      setFormOk("Campaign created.");
-    } catch (err) {
-      setFormError(
-        err instanceof ApiError
-          ? err.message
-          : "Could not create the campaign.",
-      );
-    } finally {
-      setCreating(false);
-    }
-  }
-
-  if (loading) {
-    return <PageLoading label="Loading campaigns…" />;
-  }
-
-  if (error) {
-    return <PageError message={error} />;
-  }
+  if (loading) return <PageLoading label="Loading campaigns…" />;
+  if (error) return <PageError message={error} />;
 
   return (
     <div>
-      <h1
-        data-tour-id="brand-campaigns"
-        className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl"
-      >
-        Campaigns
-      </h1>
-      <p className="mt-2 text-sm text-muted">
-        Create briefs and track active campaigns.
-      </p>
+      <PageHeader
+        tourId="brand-campaigns"
+        title="All campaigns"
+        subtitle="Find every campaign created since you joined naano, from newest to oldest."
+        action={
+          <Link to="/brand/campaigns/new" className="btn-navy btn-sm">
+            <Icon icon={Plus} size="sm" strokeWidth={2} />
+            New campaign
+          </Link>
+        }
+      />
 
-      <form
-        onSubmit={handleCreate}
-        noValidate
-        className="mt-8 flex max-w-lg flex-col gap-4 rounded-xl border border-sky-deep/50 bg-surface/80 p-5"
-      >
-        <h2 className="text-lg font-extrabold tracking-tight text-ink">
-          New campaign
-        </h2>
-
-        <div>
-          <label htmlFor="campaign-title" className={labelClass}>
-            Title
-          </label>
-          <input
-            id="campaign-title"
-            name="title"
-            type="text"
-            required
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className={fieldClass}
-          />
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2">
+          {(
+            [
+              ["all", `All (${counts.all})`],
+              ["active", `Active (${counts.active})`],
+              ["draft", `Draft (${counts.draft})`],
+              ["completed", `Completed (${counts.completed})`],
+            ] as const
+          ).map(([id, label]) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => setTab(id)}
+              className={["tab-btn", tab === id ? "is-active" : ""]
+                .filter(Boolean)
+                .join(" ")}
+              data-active={tab === id ? "true" : "false"}
+            >
+              {label}
+            </button>
+          ))}
         </div>
+        <span className="text-sm text-muted">{filtered.length} campaigns</span>
+      </div>
 
-        <div>
-          <label htmlFor="campaign-brief" className={labelClass}>
-            Brief
-          </label>
-          <textarea
-            id="campaign-brief"
-            name="brief"
-            required
-            rows={4}
-            value={brief}
-            onChange={(e) => setBrief(e.target.value)}
-            className={fieldClass}
-          />
+      {filtered.length === 0 ? (
+        <div className="card-surface px-6 py-14 text-center">
+          <p className="text-lg font-semibold">Create a campaign</p>
+          <p className="mt-2 text-sm text-muted">
+            Launch a new campaign in a few minutes — with AI, the naano team, or
+            an existing link.
+          </p>
+          <Link to="/brand/campaigns/new" className="btn-navy mt-6 inline-flex text-sm">
+            Get started
+          </Link>
         </div>
-
-        <div>
-          <label htmlFor="campaign-budget" className={labelClass}>
-            Budget (€)
-          </label>
-          <input
-            id="campaign-budget"
-            name="budgetEuros"
-            type="number"
-            inputMode="decimal"
-            min={0}
-            step="0.01"
-            required
-            value={budgetEuros}
-            onChange={(e) => setBudgetEuros(e.target.value)}
-            className={fieldClass}
-          />
-          <p className="mt-1.5 text-xs text-muted">
-            Stored as euro cents on the server.
-          </p>
-        </div>
-
-        {formError ? (
-          <p
-            role="alert"
-            className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
-          >
-            {formError}
-          </p>
-        ) : null}
-
-        {formOk ? (
-          <p
-            role="status"
-            className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800"
-          >
-            {formOk}
-          </p>
-        ) : null}
-
-        <button
-          type="submit"
-          disabled={creating}
-          className="btn-navy w-fit text-sm disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {creating ? "Creating…" : "Create campaign"}
-        </button>
-      </form>
-
-      {campaigns.length === 0 ? (
-        <p className="mt-8 rounded-xl border border-sky-deep/50 bg-surface/70 px-4 py-8 text-sm text-muted">
-          No campaigns yet. Create one above to start inviting creators.
-        </p>
       ) : (
-        <ul className="mt-8 flex flex-col gap-4">
-          {campaigns.map((c) => (
+        <ul className="space-y-3">
+          {filtered.map((c) => (
             <li
               key={c.id}
-              className="rounded-xl border border-sky-deep/50 bg-surface/80 p-5"
+              className="card-surface flex flex-wrap items-center justify-between gap-3 p-4"
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <h2 className="text-lg font-extrabold tracking-tight text-ink">
-                  {c.title}
-                </h2>
-                <CampaignStatusBadge status={c.status} />
+              <div>
+                <p className="font-semibold text-ink">{c.title}</p>
+                <p className="mt-1 line-clamp-1 text-sm text-muted">{c.brief}</p>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {c.brief}
-              </p>
-              <p className="mt-3 text-sm font-semibold text-ink">
-                Budget: {formatEuroFromCents(c.budgetCents)}
-              </p>
+              <div className="flex items-center gap-3">
+                <CampaignStatusBadge status={c.status} />
+                <span className="text-sm font-semibold">
+                  {formatEuroFromCents(c.budgetCents)}
+                </span>
+              </div>
             </li>
           ))}
         </ul>

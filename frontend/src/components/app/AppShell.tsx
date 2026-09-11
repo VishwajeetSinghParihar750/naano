@@ -43,7 +43,7 @@ export function AppShell({ heading, note, children }: AppShellProps) {
               type="button"
               onClick={handleSignOut}
               disabled={signingOut}
-              className="btn-ghost px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-60"
+              className="btn-ghost btn-sm disabled:cursor-not-allowed disabled:opacity-60"
             >
               {signingOut ? "Signing out…" : "Sign out"}
             </button>

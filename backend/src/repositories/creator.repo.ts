@@ -73,4 +73,8 @@ export const creatorRepo = {
       },
     });
   },
+
+  deleteUser(userId: string) {
+    return prisma.user.delete({ where: { id: userId } });
+  },
 };

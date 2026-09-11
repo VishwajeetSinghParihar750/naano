@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 import { useAuth, type Role } from "../lib/auth";
+import { Icon } from "./ui/Icon";
 
 function appPathForRole(role: Role): string {
   return role === "creator" ? "/creator" : "/brand";
@@ -9,8 +11,10 @@ function appPathForRole(role: Role): string {
 function AuthLoading() {
   return (
     <div className="bg-atmosphere flex min-h-screen items-center justify-center">
-      <span
-        className="h-6 w-6 animate-spin rounded-full border-2 border-sky-deep border-t-navy"
+      <Icon
+        icon={Loader2}
+        size="lg"
+        className="animate-spin text-accent"
         aria-label="Loading"
         role="status"
       />
