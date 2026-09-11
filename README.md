@@ -4,6 +4,25 @@ Thin two-sided LinkedIn creator marketplace rebuild for the 8x assignment.
 
 Specs live in [`specs/`](specs/). Architecture and conventions: [`specs/00-master.md`](specs/00-master.md).
 
+## Live demo
+
+| | URL |
+|---|---|
+| **App** | https://frontend-delta-hazel-29.vercel.app |
+| **API** | https://api-production-15a5.up.railway.app |
+| Health | https://api-production-15a5.up.railway.app/api/v1/health |
+
+**Demo logins** (password for both: `naano-demo-pass`):
+
+| Role | Email |
+|---|---|
+| Creator | `amelie.dubois@creator.naano.test` |
+| Brand | `growth@runanywhere.naano.test` |
+
+Or use **Demo as creator** / **Demo as brand** on `/login`.
+
+Hosting: frontend on **Vercel**, API + Postgres on **Railway**. See [`DEPLOY.md`](DEPLOY.md).
+
 ## Stack
 
 | Layer | Choice |
@@ -40,8 +59,8 @@ npm run db:seed
 npm run dev
 ```
 
-`npm run db:seed` loads demo data: 15 creators, 2 brands, 4 campaigns, and 6
-collaborations spanning every status. It is idempotent (safe to re-run).
+`npm run db:seed` loads demo data: 15 creators, 2 brands, multiple campaigns,
+and collaborations spanning every status. It clears and reloads (safe to re-run).
 
 **Demo credentials** (all seeded accounts share one password):
 
